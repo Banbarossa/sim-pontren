@@ -8,7 +8,7 @@
     {{-- <hr> --}}
    
     @foreach ($surat as $item)
-        <div class="card mb-4">
+        <div class="card mb-4 shadow-sm">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center">
                     <h4 class="me-3 text-primary kode" id="kode">{{ $item->kode_surat }}</h4>

@@ -3,19 +3,10 @@
       <div class="row">
         <div class="col-lg-5 col-md-5 col-6">
           <div class="header-left d-flex align-items-center">
-            <div class="menu-toggle-btn mr-20">
-              <button
-                id="menu-toggle"
-                class="main-btn primary-btn btn-hover"
-              >
-                <i class="lni lni-chevron-left me-2"></i> Menu
-              </button>
-            </div>
-            <div class="header-search d-none d-md-flex">
-              <form action="#">
-                {{-- <input type="text" placeholder="Search..." /> --}}
-                {{-- <button><i class="lni lni-search-alt"></i></button> --}}
-              </form>
+            <div id="menu-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
             </div>
           </div>
         </div>

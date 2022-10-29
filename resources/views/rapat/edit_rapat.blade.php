@@ -17,14 +17,16 @@
     @endpush
     <section class="table-components">
         <div class="container-fluid mt-4">
-            <form action="/rapat" method="POST" enctype="multipart/form-data">
+            <form action="/rapat/{{ $data->unik_id }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('put')
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card-style mb-4">
                                 <h3 class="mb-4 border-bottom">Record Rapat</h3>
                                 <div class="mb-3">
-                                    <textarea id="" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3" placeholder="Judul">{{ old('deskripsi') }}</textarea>
+                                    <input type="hidden" name="id" class="form-control" id="" value="{{ $data->id }}">
+                                    <textarea id="" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3" placeholder="Judul">{{ old('deskripsi',$data->deskripsi) }}</textarea>
                                     @error('deskripsi')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -35,7 +37,7 @@
                                     @error('kesimpulan')
                                         <small class="text-danger">{{ $message }}</small>
                                     @endError
-                                    <textarea id="summernote" class="@error('kesimpulan')  is-invalid @endError" name="kesimpulan">{{ old('kesimpulan') }}</textarea>                       
+                                    <textarea id="summernote" class="@error('kesimpulan')  is-invalid @endError" name="kesimpulan">{{ old('kesimpulan',$data->kesimpulan) }}</textarea>                       
                                 </div>                       
                         </div>
                     </div>
@@ -44,7 +46,7 @@
                             <h4 class="mb-4 border-bottom">Attachment</h4>
                             <div class="mb-3">
                                 <label for="pimpinan"class="form-label">Pimpinan Rapat</label>
-                                <input type="text" name="pimpinan" id="pimpinan" class="form-control @error('pimpinan') is-invalid @enderror" placeholder="Pimpinan Rapat" value="{{ old('pimpinan') }}">
+                                <input type="text" name="pimpinan" id="pimpinan" class="form-control @error('pimpinan') is-invalid @enderror" placeholder="Pimpinan Rapat" value="{{ old('pimpinan',$data->pimpinan) }}">
                                 @error('pimpinan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -53,14 +55,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
-                                <input type="date" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @endError" placeholder="Tanggal" value="{{ old('tanggal') }}">
+                                <input type="date" id="tanggal" name="tanggal" class="form-control @error('tanggal') is-invalid @endError" placeholder="Tanggal" value="{{ old('tanggal',$data->tanggal) }}">
                                 @error('tanggal')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @endError
                             </div>
-                            <img src="" alt="" id="img-container" class="img-fluid">
+                            <img src="{{ asset('storage/'.$data->images) }}" alt="" id="img-container" class="img-fluid">
                             <div class="mb-3">
                                 <label for="images" class="form-label">Foto</label>
                                 <input type="file" id="images" name="images" onchange="showPreview(event)" accept="image/*" class="form-control @error('images') is-invalid @endError">

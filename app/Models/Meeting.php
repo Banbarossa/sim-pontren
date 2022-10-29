@@ -9,4 +9,5 @@ class Meeting extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected  $PrimaryKey = 'unik_id';
 }

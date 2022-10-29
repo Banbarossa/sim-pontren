@@ -23,6 +23,10 @@
     @livewireStyles
   </head>
   <body>
+    
+    <!-- ======== sweet alert =========== -->
+    @include('sweetalert::alert')
+
     <!-- ======== sidebar-nav start =========== -->
     @include('layouts.sidebar')
     <!-- ======== sidebar-nav end =========== -->
