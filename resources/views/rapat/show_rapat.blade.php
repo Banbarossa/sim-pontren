@@ -15,16 +15,17 @@
                                 <a href="{{ asset('storage/'.$data->attachment) }}" target="blank" class="me-2"><i class="lni lni-files"></i></a>
                                 @endif
                                 <a href="/rapat/{{ $data->unik_id }}/edit" class="me-2 "><i class="lni lni-pencil"></i></a>
-                                <form action="/rapat/{{ $data->id }}" method="post" class="d-inline">
+                                <form action="/rapat/{{ $data->id }}" method="post" class="d-inline me-3">
                                     @csrf
                                     @method('delete')
                                     <button class="border-0 text-danger" style="background-color: transparent" type="submit" onclick="return confirm('Apakah anda yakin untuk menghapus')"><i class="lni lni-trash-can"></i></button>
                                 </form>
+                                <a href="/rapat/{{ $data->unik_id }}/savepdf" class="btn btn-danger">Export  Pdf</a>
 
                             </div>
                         </div>
                         <hr>
-                        <P class="text-muted mb-3">Pimpinan Rapat : <span class="text-primary text-bold">{{ $data->pimpinan }}</span> | Notulen : <span class="text-primary text-bold">Banbarossa</span></P>
+                        <P class="text-muted mb-3">Pimpinan Rapat : <span class="text-primary text-bold">{{ $data->pimpinan }}</span> | Notulen : <span class="text-primary text-bold">{{ $data->notulen }}</span></P>
                         <figure class="figure">
                             @if ($data->images)
                             <img src="/storage/{{ $data->images }}" class="figure-img img-fluid rounded" alt="...">

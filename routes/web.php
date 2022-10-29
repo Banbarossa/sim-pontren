@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Mastersuratkeluar::class)->name('surat_keluar');
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
 Route::resource('/rapat', RapatController::class)->except('index');
+Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
 
 // Route::get('/rapat/add', [MeetingController::class, 'index'])->name('rapat.add');
 // Route::post('/rapat', [MeetingController::class, 'store'])->name('rapat.store');

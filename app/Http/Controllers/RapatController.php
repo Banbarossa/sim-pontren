@@ -7,6 +7,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use App\Models\Meeting;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
 
 class RapatController extends Controller
 {
@@ -51,6 +53,7 @@ class RapatController extends Controller
             'unik_id' => Str::random(40),
             'tanggal' => $validatedData['tanggal'],
             'pimpinan' => $validatedData['pimpinan'],
+            'notulen' => 'Banbarossa',
             'deskripsi' => ucFirst($validatedData['deskripsi']),
             'kesimpulan' => $validatedData['kesimpulan'],
             'images' => $validatedData['images'],
@@ -142,5 +145,13 @@ class RapatController extends Controller
         $data->delete();
         alert::toast('Data berhhasil dihapus', 'success');
         return redirect('rapat');
+    }
+
+    public function createpdf($unik_id)
+    {
+
+        $data = Meeting::where('unik_id', $unik_id)->first();
+        $pdf = Pdf::loadView('rapat.pdf_rapat', ['data' => $data]);
+        return $pdf->stream();
     }
 }
