@@ -32,7 +32,5 @@
     <div>
         <p>notulen_by:</p>
     </div>
-
-
 </body>
 </html>

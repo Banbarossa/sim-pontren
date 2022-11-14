@@ -9,7 +9,7 @@
       href="assets/images/favicon.svg"
       type="image/x-icon"
     />
-    <title>ponpesKu</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- ========== All CSS files linkup ========= -->
     <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}" />

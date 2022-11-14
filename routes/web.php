@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\RapatController;
+use App\Http\Controllers\SdmController;
 use App\Http\Livewire\Rapat\MasterRapat;
 use App\Http\Livewire\Rapat\RapatAdd;
 use App\Http\Livewire\Suratkeluar\Mastersuratkeluar;
@@ -27,6 +28,7 @@ Route::get('/', Mastersuratkeluar::class)->name('surat_keluar');
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
 Route::resource('/rapat', RapatController::class)->except('index');
 Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
+Route::resource('/sdm', SdmController::class);
 
 // Route::get('/rapat/add', [MeetingController::class, 'index'])->name('rapat.add');
 // Route::post('/rapat', [MeetingController::class, 'store'])->name('rapat.store');
