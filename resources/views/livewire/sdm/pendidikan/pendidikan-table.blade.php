@@ -11,14 +11,21 @@
             </tr>
         </thead>
         <tbody>
+            @forelse($pendidikanSdm as $item)
             <tr>
-                <td>Jenjang</td>
-                <td>Nama Lembaga</td>
-                <td>Jurusan</td>
-                <td>Tahun Masuk</td>
-                <td>Tahun Lulus</td>
-                <td>IPK</td>
+                <td>{{ $item->jenjang }}</td>
+                <td>{{ $item->nama_lembaga }}</td>
+                <td>{{ $item->jurusan }}</td>
+                <td>{{ $item->tahun_masuk }}</td>
+                <td>{{ $item->lulus }}</td>
+                <td>{{ $item->ipk }}</td>
             </tr>
+            @empty
+            <tr>
+                <td colspan="6" > <h4>No data here</h4></td>
+            </tr>
+            @endforelse
+            
         </tbody>
     </table>
 </div>

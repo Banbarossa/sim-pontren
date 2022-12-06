@@ -2767,7 +2767,7 @@ h6,
     background-color: #e2e2e2;
 }
 .sidebar-nav-wrapper .sidebar-nav ul .nav-item.nav-item-has-children > a {
-    color: #262d3f;
+    color: white;
 }
 .sidebar-nav-wrapper
     .sidebar-nav
@@ -2804,7 +2804,7 @@ h6,
     ul
     .nav-item.nav-item-has-children
     > a.collapsed {
-    color: #5d657b;
+    color: white;
 }
 .sidebar-nav-wrapper
     .sidebar-nav

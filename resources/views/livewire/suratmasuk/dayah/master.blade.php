@@ -4,9 +4,8 @@
             <div class="row">
                 
                 <div class="col-lg-12">
-                    <livewire:suratkeluar.suratkeluar-index/>
-                    {{-- <div class="card-style mb-3">
-                    </div> --}}
+                    {{-- <livewire:suratkeluar.suratkeluar-index/> --}}
+
                 </div>
             </div>
         </div>

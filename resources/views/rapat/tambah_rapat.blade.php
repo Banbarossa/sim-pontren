@@ -2,19 +2,6 @@
 @section('content')
     
 <div>
-    @push('mystyle')
-    <style>
-    .note-editable ul{
-        list-style: disc !important;
-        list-style-position: inside !important;
-      }
-      
-      .note-editable ol {
-        list-style: decimal !important;
-        list-style-position: inside !important;
-      }
-    </style>
-    @endpush
     <section class="table-components">
         <div class="container-fluid mt-4">
             <form action="/rapat" method="POST" enctype="multipart/form-data">
@@ -35,7 +22,7 @@
                                     @error('kesimpulan')
                                         <small class="text-danger">{{ $message }}</small>
                                     @endError
-                                    <textarea id="summernote" class="@error('kesimpulan')  is-invalid @endError" name="kesimpulan">{{ old('kesimpulan') }}</textarea>                       
+                                    <textarea id="my-editor" class="@error('kesimpulan')  is-invalid @endError" name="kesimpulan">{{ old('kesimpulan') }}</textarea>                       
                                 </div>                       
                         </div>
                     </div>
@@ -62,7 +49,7 @@
                             </div>
                             <img src="" alt="" id="img-container" class="img-fluid">
                             <div class="mb-3">
-                                <label for="images" class="form-label">Foto</label>
+                                <label for="images" class="form-label">Foto Andalan</label>
                                 <input type="file" id="images" name="images" onchange="showPreview(event)" accept="image/*" class="form-control @error('images') is-invalid @endError">
                                 @error('images')
                                 <div class="invalid-feedback">
@@ -89,23 +76,17 @@
         </div>
     </section>
     @push('myscript')
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script>
-        $('#summernote').summernote({
-          placeholder: 'Conclution',
-          tabsize: 2,
-          height: 500,
-          toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link']],
-            ['view', ['codeview', 'help']]
-          ]
-        });
+        var options = {
+          filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+          filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+          filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+          filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+      </script>
+    <script>
+         CKEDITOR.replace('my-editor',options);
 
         function showPreview(event){
             if(event.target.files.length > 0){

@@ -1,49 +1,80 @@
 <div>
+
     <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-1">
-        <h4 class="text-gray">Daftar Surat Keluar</h4>
-        <form action="">
+        {{-- <form action="" class="d-inline">
             <input class="form-control" type="text" wire:model="search" placeholder="Search">
-        </form>
+        </form> --}}
+        <h3>Daftar Surat Keluar</h3>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">+ Tambah Data</button>
     </div>
-    {{-- <hr> --}}
-   
-    <div class="card">
-        @forelse ($surat as $item)
-            <div class="card mb-4">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="me-3 text-primary kode" id="kode">{{ $item->kode_surat }}</h5>
-                        <p class="text-gray">{{ $item->tanggal }}</p>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-2">{{ ucWords($item->tujuan )}}</h5>
-                                <div class="d-flex justify-content-end">
-                                    @if ($item->image)
-                                    <a href="http:/storage/{{ $item->image }}" class="btn btn-outline-success btn-pills mt-2 me-2" target="_blank" rel="noopener noreferrer"><i class="lni lni-empty-file"></i></a>    
-                                    @endif
-                                    <button wire:click="$emit('showForm',{{ $item->id }})" class="btn btn-outline-warning btn-pills mt-2"><i class="lni lni-pencil"></i></button>
-                                    <button wire:click="confirm({{ $item->id }})" class="btn btn-outline-danger btn-pills mt-2 mx-2"><i class="lni lni-trash-can"></i></button>
-                                </div>
-                                                
-                            </div>
-                            <p>{{ $item->isi_ringkas }}</p>
-                        
-                        </div>
-                    </div>   
-                </div>
-            </div>
-        @empty
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="me-3 text-muted kode" id="kode">No Data Here!</h4>
-                </div>
-            </div>
-        @endforelse
-        {{ $surat->links() }}
+
+
+    <div class="card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-1">
+            <form action="" class="d-inline">
+                <input class="form-control" type="text" wire:model="search" placeholder="Search">
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table text-gray">
+                <thead>
+                    <tr>
+                        <th>Kode Surat</th>
+                        <th>Tanggal</th>
+                        <th>Tujuan</th>
+                        <th class="col-md-4">Isi ringkas</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($surat as $item)
+                    <tr>
+                        <td>{{ $item->kode_surat }}</td>
+                        <td class="text-nowrap">{{ \Carbon\Carbon::Parse($item->tanggal)->format('d-m-Y') }}</td>
+                        <td>{{ $item->tujuan }}</td>
+                        <td class="text-wrap text-break">{{ $item->isi_ringkas }}</td>
+                        <td>
+                            <button class="bg-transparent border-0 text-gray" wire:click="$emit('tampilsurat',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit" aria-controls="offcanvasEdit"><i class="lni lni-pencil"></i></button>
+                            <button wire:click="confirm({{ $item->id }})" class="bg-transparent border-0 text-gray"><i class="lni lni-trash-can"></i></button>
+                            @if ($item->image)
+                                <a href="http:/storage/{{ $item->image }}" class="btn btn-outline-success btn-pills mt-2 me-2" target="_blank" rel="noopener noreferrer"><i class="lni lni-empty-file"></i></a>    
+                            @endif
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td  colspan="5">No data here</td>
+                    </tr>
+                    @endforelse
+                    
+                </tbody>
+    
+            </table>
+            {{ $surat->links() }}
+        </div>
     </div>
+
+
+
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <livewire:suratkeluar.suratkeluar-add/>
+        </div>
+    </div>    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Edit Data</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <livewire:suratkeluar.suratkeluar-update/>
+        </div>
+    </div>    
 </div>
 

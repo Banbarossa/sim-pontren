@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('jenjang');
             $table->string('nama_lembaga');
             $table->string('jurusan')->nullable();
-            $table->date('tahun_masuk')->nullable();
-            $table->date('lulus')->nullable();
-            $table->date('ipk')->nullable();
+            $table->string('tahun_masuk')->nullable();
+            $table->string('lulus')->nullable();
+            $table->integer('ipk')->nullable();
             $table->timestamps();
         });
     }

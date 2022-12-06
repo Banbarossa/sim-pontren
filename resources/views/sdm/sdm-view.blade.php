@@ -4,7 +4,6 @@
     <div class="container-fluid mt-4">
         <div class="d-flex justify-content-between">
             <h3 class="mb-4 border-bottom">Detail Data</h3>
-            {{-- <a href="/sdm/create" class="btn btn-primary px-5 mb-3">Tambah</a> --}}
         </div>
 
         <div class="row">
@@ -60,16 +59,16 @@
             <div class="col-lg-9">
                 <div class="card-style mb-4">
                     <ul class="nav nav-pills border-bottom pb-1" id="pills-tab" role="tablist">
-                        <li class="nav-item me-5" role="presentation">
+                        <li class="nav-item me-2" role="presentation">
                           <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Keluarga</button>
                         </li>
-                        <li class="nav-item me-5" role="presentation">
-                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Riwayat Pendidikan</button>
+                        <li class="nav-item me-2" role="presentation">
+                          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pendidikan</button>
                         </li>
-                        <li class=" me-5" role="presentation">
-                          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Riwayat Jabatan</button>
+                        <li class=" me-2" role="presentation">
+                          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Jabatan</button>
                         </li>
-                        <li class=" me-5" role="presentation">
+                        <li class=" me-2" role="presentation">
                           <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
                         </li>
                     </ul>
@@ -85,7 +84,7 @@
                             <div class="d-flex justify-content-end">
                                 <button class="btn btn-primary px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#riwayatpedidikanAdd" aria-controls="riwayatpedidikanAdd">Tambah</button>
                             </div>
-                            <livewire:sdm.pendidikan.pendidikan-table/>
+                            <livewire:sdm.pendidikan.pendidikan-table :data="$data"/>
                         </div>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
                             <livewire:sdm.riwayatjabatan-table/>
@@ -117,7 +116,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <livewire:sdm.pendidikan.pendidikan-add>
+    <livewire:sdm.pendidikan.pendidikan-add :data="$data"/>
     
   </div>
 </div>

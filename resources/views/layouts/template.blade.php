@@ -16,8 +16,13 @@
     <link rel="stylesheet" href="/assets/css/lineicons.css" />
     <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script> --}}
+        
+        
+    
     {{--summernote --}}
-    <link rel="stylesheet" href="/assets/summernote/summernote-lite.min.css" />
+    {{-- <link rel="stylesheet" href="/assets/summernote/summernote-lite.min.css" /> --}}
+    
     
     @stack('mystyle')
     @livewireStyles
@@ -89,13 +94,8 @@
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/jquery.js"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-    <script src="/assets/summernote/summernote-lite.min.js"></script>
-    {{-- summernote --}}
-    {{-- <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
+    
+    
     @stack('myscript')
   </body>
 </html>

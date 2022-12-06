@@ -1,21 +1,33 @@
 
-@props(['customClass'=>''])
+<div {{ $attributes->merge(['class' => 'form-group mb-3']) }}>
 
-
-<div {{ $attributes->merge(['class'=>'form-group '.$customClass]) }}>
     <label for="{{ $id }}">{{ $label }}</label>
 
-    <input type="{{ $type }}" name="{{ $name }}" id="{{ $id }}" class="form-control @error("{{ $name }}") is-invalid @enderror" 
-    @if ($model)
+    <input
+        type="{{ $type }}"
+        class="form-control @error($name) is-invalid @enderror"
+        name="{{ $name }}"
+        id="{{ $id }}"
+        step="{{ $step }}"
         wire:model="{{ $model }}"
+
+        @if( $value !== null && $value !== "" )
+            value="{{ $value }}"
+        @else
+            value="{{ old($name) }}"
+        @endif
+
+        {{ $isRequired ? 'required' : '' }} >
+
+    @if($hintText)
+        <small class="form-text text-muted">{{ $hintText }}</small>
     @endif
-    >
-    
-    @error('{{ $name }}')
-    <span class="invalid-feedback">
-        {{ $message }}
-    </span>
+
+    {{-- Dengan Bantuan Error Bag dari Laravel --}}
+    @error($name)
+        <span class="invalid-feedback" role="alert">
+            {{ $message }}
+        </span>
     @enderror
-    
 
 </div>

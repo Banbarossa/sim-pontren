@@ -1,7 +1,7 @@
 <div>
     @push('mystyle')
     <style>
-    .note-editable ul{
+    /* .note-editable ul{
         list-style: disc !important;
         list-style-position: inside !important;
       }
@@ -9,7 +9,8 @@
       .note-editable ol {
         list-style: decimal !important;
         list-style-position: inside !important;
-      }
+      } */
+      
     </style>
     @endpush
     <section class="table-components">
@@ -20,7 +21,13 @@
                         <div class="card-style mb-4">
                                 <h3 class="mb-4 border-bottom">Record Rapat</h3>
                                 <textarea name="" id="" wire:model="deskripsi" class="form-control mb-3" rows="3" placeholder="Agenda/Ringkasan"></textarea>                       
-                                <textarea id="summernote" wire:model="kesimpulan" name="editordata"></textarea>                       
+                                <textarea id="my-editor" wire:model="kesimpulan" name="editordata"></textarea> 
+                                <div wire:ignore>
+                                    <textarea wire:model="message"
+                                              class="min-h-fit h-48 "
+                                              name="message"
+                                              id="message"></textarea>
+                                </div>                      
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -53,20 +60,32 @@
     </section>
     @push('myscript')
     <script>
-        $('#summernote').summernote({
-          placeholder: 'Conclution',
-          tabsize: 2,
-          height: 500,
-          toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['codeview', 'help']]
-          ]
-        });
-      </script>      
+        //  ClassicEditor
+        //     .create(document.querySelector('#message'))
+        //     .then(editor => {
+        //         editor.model.document.on('change:data', () => {
+        //         @this.set('message', editor.getData());
+        //         })
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
+        
+        // CKEDITOR.replace('my-editor')
+    //     $('#summernote').summernote({
+    //       placeholder: 'Conclution',
+    //       tabsize: 2,
+    //       height: 500,
+    //       toolbar: [
+    //         ['style', ['style']],
+    //         ['font', ['bold', 'underline', 'clear']],
+    //         ['color', ['color']],
+    //         ['para', ['ul', 'ol', 'paragraph']],
+    //         ['table', ['table']],
+    //         ['insert', ['link', 'picture', 'video']],
+    //         ['view', ['codeview', 'help']]
+    //       ]
+    //     });
+    //   </script>      
     @endpush
 </div>

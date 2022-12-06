@@ -11,28 +11,40 @@ class input extends Component
      *
      * @return void
      */
+    public $label;
+    public $id;
+    public $type;
+    public $name;
+    public $value;
+    public $isRequired;
+    public $hintText;
+    public $model;
+    public $placeholder;
+    public $step;
 
-    public $label, $id, $type, $model, $class, $name, $placeholder, $message;
+
     public function __construct(
         $label = "",
         $id = "",
-        $type = "",
-        $model = "",
-        $class = "",
-        // $customClass = "",
+        $type = "text",
         $name = "",
+        $value = "",
+        $isRequired = false,
+        $hintText = null,
+        $model = "",
         $placeholder = "",
-        $message = "",
+        $step = "",
     ) {
         $this->label = $label;
         $this->id = $id;
         $this->type = $type;
-        $this->model = $model;
-        $this->class = $class;
-        // $this->customClass = $customClass;
         $this->name = $name;
+        $this->value = $value;
+        $this->isRequired = $isRequired;
+        $this->hintText = $hintText;
+        $this->model = $model;
         $this->placeholder = $placeholder;
-        $this->message = $message;
+        $this->step = $step;
     }
 
     /**
