@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Gedung;
 
 class GedungController extends Controller
 {
@@ -34,7 +35,15 @@ class GedungController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'nama' => 'required',
+            'jumlah_lantai' => 'required',
+            'kepemilikan' => 'required',
+            'kerusakan' => 'required',
+            'tahun_dibangun' => 'required',
+            'luas' => 'required',
+        ]);
     }
 
     /**
@@ -45,7 +54,10 @@ class GedungController extends Controller
      */
     public function show($id)
     {
-        //
+        $gedung = Gedung::find($id)->first();
+
+        // dd($gedung);
+        return view('gedung.gedungview', ['data' => $gedung]);
     }
 
     /**

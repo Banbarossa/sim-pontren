@@ -5,17 +5,35 @@
         <div class="container-fluid mt-4">
             <div class="row">
                 
-                <div class="col-lg-12">
-                    <div class="card p-3">Dasdboard</div>
-                </div>
+                <x-page-title>
+                    @slot('title')
+                        Data Bangunan/Gedung
+                    @endslot
+                    <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#gedungadd" aria-controls="gedungadd">+ Tambah Data</button>
+                </x-page-title>
+
             </div>
-            <div class="row">
-                
+            <div class="row mt-3">         
                 <div class="col-lg-12">
-                    
+                    <livewire:gedung.gedung-table/>
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+
+{{-- ofcanvas add-data --}}
+<div class="offcanvas offcanvas-end" tabindex="-1" id="gedungadd" aria-labelledby="gedungaddLabel">
+    <div class="offcanvas-header">
+        {{-- <h5 class="offcanvas-title" id="gedungaddLabel">Tambah Data Gedung</h5> --}}
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-4">
+        <livewire:gedung.gedung-create/>
+    </div>
+</div>    
+
+
+
 @endsection

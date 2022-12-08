@@ -1,10 +1,21 @@
 <div>
     <section class="components">
         <div class="container-fluid mt-4">
-            <div class="d-flex justify-content-between  mb-4">
+            <div class="row mb-3">
+                <x-page-title>
+                    @slot('title')
+                    Notulensi Rapat          
+                    @endslot
+                    <div class="d-flex">
+                        <input type="text" wire:model="search" class="form-control me-3" placeholder="Search">
+                        <a href="/rapat/create" class="btn btn-primary px-2 d-inline">Tambah</a>
+                    </div>
+                </x-page-title>
+            </div>
+            {{-- <div class="d-flex justify-content-between  mb-4">
                 <a href="/rapat/create" class="btn btn-primary px-2">Tambah Data</a>
                 <input type="text" wire:model="search" class="form-control" placeholder="Search" style="width: 40%">
-            </div>
+            </div> --}}
             @if ($message = Session::get('success'))
                 <div class="alert alert-info alert-block">
                     <button type="button" class="close" data-dismiss="alert">×</button>	
