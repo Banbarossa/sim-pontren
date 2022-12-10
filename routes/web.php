@@ -27,12 +27,14 @@ Route::get('/', function () {
 
 Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah');
 Route::get('/surat/masuk', Master::class)->name('suratmasuk.dayah');
+
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
 Route::resource('/rapat', RapatController::class)->except('index');
 Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
+
 Route::resource('/sdm', SdmController::class);
 Route::resource('/sarpras/gedung', GedungController::class);
-
+Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 
 
 // Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

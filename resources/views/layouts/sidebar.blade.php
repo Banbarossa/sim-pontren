@@ -91,7 +91,7 @@
               <a href="/sarpras/gedung" class="text-primary">Gedung</a>
             </li>
             <li>
-              <a href="{{ route('suratkeluar.dayah') }}" class="text-primary"> Surat Keluar </a>
+              <a href="#" class="text-primary">Inventory</a>
             </li>
           </ul>
         </li>

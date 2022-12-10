@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gedung;
+use App\Models\Ruang;
 
 class GedungController extends Controller
 {
@@ -54,10 +55,12 @@ class GedungController extends Controller
      */
     public function show($id)
     {
-        $gedung = Gedung::find($id)->first();
-
-        // dd($gedung);
-        return view('gedung.gedungview', ['data' => $gedung]);
+        $gedung = Gedung::find($id);
+        $ruang  = Ruang::Where('gedung_id', $id)->get();
+        return view('gedung.gedungview', [
+            'data' => $gedung,
+            'ruang' => $ruang
+        ]);
     }
 
     /**
@@ -92,5 +95,10 @@ class GedungController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createruang(Request $request)
+    {
+        dd($request);
     }
 }

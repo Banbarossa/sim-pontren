@@ -65,7 +65,7 @@
                             <img src="{{ asset('storage/'.$data->images) }}" alt="" id="img-container" class="img-fluid">
                             <div class="mb-3">
                                 <label for="images" class="form-label">Foto</label>
-                                <input type="file" id="images" name="images" onchange="showPreview(event)" accept="image/*" class="form-control @error('images') is-invalid @endError">
+                                <input type="file" id="images" name="images" onchange="showPreview(event)" accept="image/*" value="{{ old('images'),$data->images }}" class="form-control @error('images') is-invalid @endError">
                                 @error('images')
                                 <div class="invalid-feedback">
                                     {{ $message }}

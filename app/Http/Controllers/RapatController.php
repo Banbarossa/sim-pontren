@@ -87,6 +87,7 @@ class RapatController extends Controller
     public function update(Request $request, $id)
     {
         $data = Meeting::findOrFail($request->id);
+        dd($request);
 
         // pengecekan dan store file image
         if ($request->images) {

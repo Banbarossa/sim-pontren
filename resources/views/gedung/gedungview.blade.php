@@ -7,9 +7,9 @@
                 
                 <div class="col-lg-12">
                     <div class="card py-3 px-4">
-                        <div class="d-flex align-items-center justify-content-between border-bottom pb-4">
+                        <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <h3 class="text-muted mb-2">Data Gedung</h3>
+                                <h3 class="text-muted mb-2">{{ $data->nama }}</h3>
                                 <p class="d-block">Kepemilikan : {{ $data->kepemilikan }}</p>
                             </div>
                            <div>
@@ -18,36 +18,46 @@
                             <p class="d-block">Luas : {{ $data->luas }}</p>
                            </div>
                         </div>
-                        <div class="table-responsive mt-3">
-                            <table class="table table-stripped">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Ruang</th>
-                                        <th>Kondisi</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>adfadfa</td>
-                                        <td>baik</td>
-                                        <td><button class="btn btn-secondary">test</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            
-                        </div>
+
+                        
                     </div>
 
+                </div>
+                <div class="col-12 mt-2">
+                    <div class="card px-4 py-3">
+                        <div class="d-flex justify-content-between border-bottom align-items-center p-2 bg-secondary mb-3">
+                            <h5 class="text-white">Data Ruangan</h5>
+                            <button type="button" class="btn btn-primary block"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                            Tambah Ruangan
+                            </button>
+                        </div>
+                        {{-- tabel ruang --}}
+                        <livewire:gedung.ruang-table gedung_id="{{ $data->id }}"/>
+
+
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
+
 </div>
 
 
 
+
+<!-- Vertically Centered modal Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+    role="document">
+    <div class="modal-content">
+        <livewire:gedung.ruang-create gedung_id="{{ $data->id }}"/>
+    </div>
+</div>
+</div>
 
 
 @endsection
