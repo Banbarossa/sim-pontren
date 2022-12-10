@@ -7,8 +7,8 @@ use App\Http\Controllers\GedungController;
 use App\Http\Livewire\Rapat\MasterRapat;
 use App\Http\Livewire\Rapat\RapatAdd;
 use App\Http\Livewire\Suratkeluar\Mastersuratkeluar;
-use App\Http\Livewire\suratmasuk\dayah\Master;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SuratmasukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah');
-Route::get('/surat/masuk', Master::class)->name('suratmasuk.dayah');
+Route::get('/surat/masuk', [SuratmasukController::class, 'index'])->name('suratmasuk');
 
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
 Route::resource('/rapat', RapatController::class)->except('index');

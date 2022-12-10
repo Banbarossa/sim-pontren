@@ -13,8 +13,7 @@
             <x-forms.input name="nama" model="nama" type="text" label="Nama" placeholder="Nama Ruangan">
             </x-forms.input>
 
-            {{ $nama }}
-
+            
             <div class="form-group">
                 <label for="kondisi">Kondisi</label>
                 <select name="kondisi" wire:model="kondisi" id="" class="form-select @error('kondisi') is-invalid @enderror">
@@ -39,9 +38,7 @@
                 <span class="d-none d-sm-block">Close</span>
             </button>
             <button type="submit" class="btn btn-primary ml-1"
-            @if ($success)
             data-bs-dismiss="modal">
-            @endif
                 <i class="bx bx-check d-block d-sm-none"></i>
                 <span class="d-none d-sm-block">Submit</span>
             </button>

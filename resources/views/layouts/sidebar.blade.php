@@ -52,9 +52,9 @@
             </span>
             <span class="text">Manajemen Surat</span>
           </a>
-          <ul id="ddmenu_2" class="collapse dropdown-nav">
+          <ul id="ddmenu_2" class="collapse dropdown-nav pb-2">
             <li>
-              <a href="{{ route('suratmasuk.dayah') }}" class="text-primary"> Surat Masuk</a>
+              <a href="{{ route('suratmasuk') }}" class="text-primary"> Surat Masuk</a>
             </li>
             <li>
               <a href="{{ route('suratkeluar.dayah') }}" class="text-primary"> Surat Keluar </a>
@@ -86,7 +86,7 @@
             </span>
             <span class="text">Sarpras</span>
           </a>
-          <ul id="ddmenu_3" class="collapse dropdown-nav">
+          <ul id="ddmenu_3" class="collapse dropdown-nav pb-2">
             <li>
               <a href="/sarpras/gedung" class="text-primary">Gedung</a>
             </li>
