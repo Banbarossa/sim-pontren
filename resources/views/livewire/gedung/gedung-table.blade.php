@@ -19,7 +19,8 @@
             <tbody>
                 @foreach ($data as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->firstItem()+$loop->index }}</td>
+                        {{-- <td>{{ $loop->iteration }}</td> --}}
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->jumlah_lantai }}</td>
                         <td>{{ $item->kepemilikan }}</td>
@@ -27,13 +28,13 @@
                         <td>{{ $item->tahun_dibangun }}</td>
                         <td>{{ $item->luas }}</td>
                         <td>
-                            <button wire:click="view({{ $item->id }})" class="btn btn-warning">view</button>
-                            <a href="/sarpras/gedung/{{ $item->id }}" class="btn btn-secondary">View</a>
+                            <a href="/sarpras/gedung/{{ $item->id }}" class="btn btn-outline-primary">View</a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        <div>{{ $data->links() }}</div>
 
     </div>
 </div>

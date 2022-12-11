@@ -14,8 +14,8 @@
                                 @if ($data->attachment)
                                 <a href="{{ asset('storage/'.$data->attachment) }}" target="blank" class="me-2"><i class="lni lni-files"></i></a>
                                 @endif
-                                <a href="/rapat/{{ $data->unik_id }}/edit" class="me-2 "><i class="lni lni-pencil"></i></a>
-                                <form action="/rapat/{{ $data->id }}" method="post" class="d-inline me-3">
+                                <a href="/rapat/{{ $data->unik_id }}/edit" class="me-2 btn btn-outline-warning"><i class="lni lni-pencil"></i></a>
+                                <form action="/rapat/{{ $data->id }}" method="post" class=" me-2 btn btn-outline-danger">
                                     @csrf
                                     @method('delete')
                                     <button class="border-0 text-danger" style="background-color: transparent" type="submit" onclick="return confirm('Apakah anda yakin untuk menghapus')"><i class="lni lni-trash-can"></i></button>

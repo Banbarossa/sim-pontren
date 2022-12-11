@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use App\Models\Meeting;
+use App\Models\Sdm;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
@@ -21,12 +22,14 @@ class RapatController extends Controller
 
     public function create()
     {
-        return view('rapat.tambah_rapat');
+        $sdm = Sdm::all();
+        return view('rapat.tambah_rapat', ['data' => $sdm]);
     }
 
 
     public function store(Request $request)
     {
+        dd($request->states);
         $validatedData = $request->validate([
             'tanggal'   => 'required',
             'pimpinan'  => 'required|min:4',
@@ -86,11 +89,12 @@ class RapatController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $data = Meeting::findOrFail($request->id);
-        dd($request);
+
 
         // pengecekan dan store file image
-        if ($request->images) {
+        if ($request->file('images')) {
             if ($data->images) {
                 $public_path = public_path('storage/' . $data->images);
                 File::delete($public_path);
@@ -98,7 +102,7 @@ class RapatController extends Controller
 
             $images = $request->file('images')->store('rapat', 'public');
         } else {
-            $images = "";
+            $images = $data->images;
         }
 
         // pengecekan dan store file Attachment

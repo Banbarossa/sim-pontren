@@ -12,10 +12,7 @@
                     </div>
                 </x-page-title>
             </div>
-            {{-- <div class="d-flex justify-content-between  mb-4">
-                <a href="/rapat/create" class="btn btn-primary px-2">Tambah Data</a>
-                <input type="text" wire:model="search" class="form-control" placeholder="Search" style="width: 40%">
-            </div> --}}
+
             @if ($message = Session::get('success'))
                 <div class="alert alert-info alert-block">
                     <button type="button" class="close" data-dismiss="alert">×</button>	

@@ -36,8 +36,8 @@
                         <td>{{ $item->tujuan }}</td>
                         <td class="text-wrap text-break">{{ $item->isi_ringkas }}</td>
                         <td>
-                            <button class="bg-transparent border-0 text-gray" wire:click="$emit('tampilsurat',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit" aria-controls="offcanvasEdit"><i class="lni lni-pencil"></i></button>
-                            <button wire:click="confirm({{ $item->id }})" class="bg-transparent border-0 text-gray"><i class="lni lni-trash-can"></i></button>
+                            <button class="btn btn-outline-warning" wire:click="$emit('tampilsurat',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit" aria-controls="offcanvasEdit"><i class="lni lni-pencil"></i></button>
+                            <button wire:click="confirm({{ $item->id }})" class="btn btn-outline-danger"><i class="lni lni-trash-can"></i></button>
                             @if ($item->image)
                                 <a href="http:/storage/{{ $item->image }}" class="btn btn-outline-success btn-pills mt-2 me-2" target="_blank" rel="noopener noreferrer"><i class="lni lni-empty-file"></i></a>    
                             @endif

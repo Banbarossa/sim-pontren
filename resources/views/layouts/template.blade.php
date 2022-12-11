@@ -16,25 +16,16 @@
     <link rel="stylesheet" href="/assets/css/lineicons.css" />
     <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script> --}}
-        
-        
+
     
-    {{--summernote --}}
-    {{-- <link rel="stylesheet" href="/assets/summernote/summernote-lite.min.css" /> --}}
-    
-    
-    @stack('mystyle')
     @livewireStyles
+    @stack('mystyle')
   </head>
   <body>
     
-    <!-- ======== sweet alert =========== -->
     @include('sweetalert::alert')
 
-    <!-- ======== sidebar-nav start =========== -->
     @include('layouts.sidebar')
-    <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->
     <main class="main-wrapper">

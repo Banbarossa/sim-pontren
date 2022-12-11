@@ -61,7 +61,7 @@ class SuratkeluarIndex extends Component
             'surat' => SuratKeluar::where('tujuan', 'like', '%' . $this->search . '%')
                 ->orWhere('kode_surat', 'like', '%' . $this->search . '%')
                 ->orWhere('isi_ringkas', 'like', '%' . $this->search . '%')
-                ->latest()->paginate(5),
+                ->latest()->paginate(20),
         ]);
     }
 }

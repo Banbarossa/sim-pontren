@@ -1,5 +1,14 @@
 @extends('layouts.template')
 @section('content')
+
+@push('mystyle')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style>
+   #select2{
+        width: 100%!important;
+    }
+</style>
+@endpush
     
 <div>
     <section class="table-components">
@@ -18,6 +27,19 @@
                                     </div>
                                     @endError
                                 </div>
+
+                                <div class="mb-3 col-12">
+                                    <label for="select2">Peserta Rapat</label>
+                                    <select id="select2" class="form-select js-example-basic-multiple" name="states[]" multiple="multiple">
+                                        @foreach ($data as $item)
+                                        <option value="{{ $item->nama }}">{{ $item->nama }}</option>
+                                            
+                                        @endforeach
+                                       
+                                        
+                                    </select> 
+                                </div>
+
                                 <div>
                                     @error('kesimpulan')
                                         <small class="text-danger">{{ $message }}</small>
@@ -76,6 +98,12 @@
         </div>
     </section>
     @push('myscript')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('.js-example-basic-multiple').select2({placeholder:"Pilih peserta Rapat"});
+        });
+    </script>
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script>
         var options = {

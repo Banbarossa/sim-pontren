@@ -4,15 +4,7 @@
 <div>
     @push('mystyle')
     <style>
-    /* .note-editable ul{
-        list-style: disc !important;
-        list-style-position: inside !important;
-      }
-      
-      .note-editable ol {
-        list-style: decimal !important;
-        list-style-position: inside !important;
-      } */
+
     </style>
     @endpush
     <section class="table-components">
@@ -106,22 +98,7 @@
 
         
 
-        // $('#summernote').summernote({
-        //   placeholder: 'Conclution',
-        //   tabsize: 2,
-        //   height: 500,
-        //   toolbar: [
-        //     ['style', ['style']],
-        //     ['font', ['bold', 'underline', 'clear']],
-        //     ['fontname', ['fontname']],
-        //     ['fontsize', ['fontsize']],
-        //     ['color', ['color']],
-        //     ['para', ['ul', 'ol', 'paragraph']],
-        //     ['table', ['table']],
-        //     ['insert', ['link']],
-        //     ['view', ['codeview', 'help']]
-        //   ]
-        // });
+        
 
         function showPreview(event){
             if(event.target.files.length > 0){

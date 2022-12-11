@@ -1,18 +1,10 @@
 <div>
     @push('mystyle')
-    <style>
-    /* .note-editable ul{
-        list-style: disc !important;
-        list-style-position: inside !important;
-      }
-      
-      .note-editable ol {
-        list-style: decimal !important;
-        list-style-position: inside !important;
-      } */
-      
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @endpush
+
+
+
     <section class="table-components">
         <div class="container-fluid mt-4">
             <form action="" wire:submit.prevent="store" enctype="multipart/form-data" wire:ignore>
@@ -20,7 +12,15 @@
                     <div class="col-lg-8">
                         <div class="card-style mb-4">
                                 <h3 class="mb-4 border-bottom">Record Rapat</h3>
-                                <textarea name="" id="" wire:model="deskripsi" class="form-control mb-3" rows="3" placeholder="Agenda/Ringkasan"></textarea>                       
+                                <textarea name="" id="" wire:model="deskripsi" class="form-control mb-3" rows="3" placeholder="Agenda/Ringkasan"></textarea>
+                                <select name="" id="select2" class="form-select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    
+                                </select>                       
                                 <textarea id="my-editor" wire:model="kesimpulan" name="editordata"></textarea> 
                                 <div wire:ignore>
                                     <textarea wire:model="message"
@@ -59,33 +59,6 @@
         </div>
     </section>
     @push('myscript')
-    <script>
-        //  ClassicEditor
-        //     .create(document.querySelector('#message'))
-        //     .then(editor => {
-        //         editor.model.document.on('change:data', () => {
-        //         @this.set('message', editor.getData());
-        //         })
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //     });
-        
-        // CKEDITOR.replace('my-editor')
-    //     $('#summernote').summernote({
-    //       placeholder: 'Conclution',
-    //       tabsize: 2,
-    //       height: 500,
-    //       toolbar: [
-    //         ['style', ['style']],
-    //         ['font', ['bold', 'underline', 'clear']],
-    //         ['color', ['color']],
-    //         ['para', ['ul', 'ol', 'paragraph']],
-    //         ['table', ['table']],
-    //         ['insert', ['link', 'picture', 'video']],
-    //         ['view', ['codeview', 'help']]
-    //       ]
-    //     });
-    //   </script>      
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>    
     @endpush
 </div>
