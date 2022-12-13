@@ -81,7 +81,7 @@
               <a href="/sarpras/gedung" class="text-primary">Gedung</a>
             </li>
             <li>
-              <a href="#" class="text-primary">Inventory</a>
+              <a href="/sarpras/inventory" class="text-primary">Inventory</a>
             </li>
           </ul>
         </li>

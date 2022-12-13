@@ -9,6 +9,7 @@ use App\Http\Livewire\Rapat\RapatAdd;
 use App\Http\Livewire\Suratkeluar\Mastersuratkeluar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuratmasukController;
+use App\Http\Controllers\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->n
 
 Route::resource('/sdm', SdmController::class);
 Route::resource('/sarpras/gedung', GedungController::class);
+Route::resource('/sarpras/inventory', InventoryController::class);
 Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 
 
@@ -43,3 +45,7 @@ Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('a
 Route::group(['prefix' => 'laravel-filemanager'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
