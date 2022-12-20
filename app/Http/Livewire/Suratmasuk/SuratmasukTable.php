@@ -18,7 +18,7 @@ class SuratmasukTable extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $surat_masukId, $search;
+    public $surat_masukId, $search, $perpage = 10;
 
 
 
@@ -32,7 +32,7 @@ class SuratmasukTable extends Component
 
         $data = SuratMasuk::where('pengirim', 'like', '%' . $this->search . '%')
             ->orWhere('isi_ringkas', 'like', '%' . $this->search . '%')
-            ->paginate(20);
+            ->paginate($this->perpage);
         return view('livewire.suratmasuk.suratmasuk-table', ['data' => $data]);
     }
 

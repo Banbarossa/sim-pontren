@@ -2,6 +2,7 @@
     <table class="table table-stripped">
         <thead>
             <tr>
+                <th>No</th>
                 <th>Nama Ruang</th>
                 <th>Kondisi</th>
                 <th>Aksi</th>
@@ -10,9 +11,10 @@
         <tbody>
             @forelse ($ruang as $item)
             <tr>
+                <td>{{ $ruang->firstItem()+$loop->index }}</td>
                 <td>{{ $item->nama }}</td>
                 <td>{{ $item->kondisi }}</td>
-                <td><button class="btn btn-secondary">test</button></td>
+                <td><a href="/sarpras/ruang/{{ $item->id }}" class="btn btn-outline-secondary"><i class="lni lni-eye"></i></a></td>
             </tr>
             @empty
                 <tr>

@@ -14,4 +14,13 @@ class Inventory extends Model
     {
         return $this->belongsTo(InventoryCategory::class);
     }
+
+    public function Ruang()
+    {
+        return $this->belongsTo(Ruang::class);
+    }
+    public  function danainventory()
+    {
+        return $this->belongsTo(Danainventory::class);
+    }
 }

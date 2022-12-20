@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-12 mt-2">
                     <div class="card px-4 py-3">
-                        <div class="d-flex justify-content-between border-bottom align-items-center p-2 bg-secondary mb-3">
-                            <h5 class="text-white">Data Ruangan</h5>
-                            <button type="button" class="btn btn-primary block"
+                        <div class=" card-header d-flex justify-content-between border-bottom align-items-center p-2 mb-3">
+                            <h5>Data Ruangan</h5>
+                            <button type="button" class="btn btn-outline-secondary block"
                                             data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
                                             Tambah Ruangan
                             </button>

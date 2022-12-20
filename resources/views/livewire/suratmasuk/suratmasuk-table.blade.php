@@ -1,8 +1,23 @@
 <div class="card p-2">
-    <div class="col-8 col-md-6 col-lg-4 mb-3 d-flex align-items-center">
-        <span>
+    <div class="">
+        <div class="d-flex justify-content-between">
+            <div class="col-4 col-md-6 col-lg-8">
+                <div class="col-4">
+                    <select name="perpage" wire:model="perpage" id="perpage" class="form-select">
+                        <option value="10">10 Per Page</option>
+                        <option value="25">25 Per Page</option>
+                        <option value="50">50 Per Page</option>
+                    </select>
+                </div>
+    
+            </div>
+            <div class="col-8 col-md-6 col-lg-4 mb-3">
+                <input type="text" placeholder="Search" wire:model="search" class="form-control">
+            </div>
+        </div>
+        {{-- <span>
             <input type="text" placeholder="Search" wire:model="search" class="form-control">
-        </span>
+        </span> --}}
     </div>
     <div class="table-responsive">
         <table class="table table-hover">

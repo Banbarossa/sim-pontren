@@ -17,7 +17,7 @@ class RuangTable extends Component
 
     public function render()
     {
-        $ruang = Ruang::where('gedung_id', $this->gedung_id)->get();
+        $ruang = Ruang::where('gedung_id', $this->gedung_id)->paginate(10);
         return view('livewire.gedung.ruang-table', ['ruang' => $ruang]);
     }
 }

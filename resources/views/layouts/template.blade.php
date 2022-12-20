@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="/assets/css/lineicons.css" />
     <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <style>
+      [x-cloak] { display: none !important; }
+      
+    </style>
 
     
     @livewireStyles
@@ -85,6 +89,7 @@
     <script src="/assets/js/polyfill.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/jquery.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     
     @stack('myscript')

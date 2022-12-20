@@ -24,12 +24,6 @@ class SuratkeluarAdd extends Component
 
     public function mount()
     {
-        // $lastrow = SuratKeluar::orderBy('id', 'desc')->first();
-        // if ($lastrow) {
-        //     $this->generateId = str_pad($lastrow->id + 1, 3, '0', STR_PAD_LEFT);
-        // } else {
-        //     $this->generateId = str_pad(1, 3, '0', STR_PAD_LEFT);
-        // }
     }
 
     public function updated($field)

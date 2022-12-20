@@ -16,6 +16,7 @@
             <div class="row mt-3">         
                 <div class="col-lg-12">
                     <livewire:suratmasuk.suratmasuk-table/>
+                    {{-- <livewire:suratmasuk.incomming-letter/> --}}
 
                 </div>
             </div>

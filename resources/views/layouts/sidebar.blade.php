@@ -125,11 +125,11 @@
       </ul>
     </nav>
 
-    <div class="promo-box">
-      <h3 class="text-primary">Banbarossa.Tech</h3>
+    <div class="promo-box rounded border">
+      <h3 class="text-white pb-3">Banbarossa.Tech</h3>
       <div class="d-flex justify-content-evenly">
-          <h2><a href="https://www.facebook.com/banbarossa.banbarossa" target="_blank"><i class="lni lni-facebook-oval"></i></a></h2>
-          <h2><a href="https://www.instagram.com/banbarossa/" target="_blank"><i class="lni lni-instagram-original"></i></a></h2>
+          <h2><a href="https://www.facebook.com/banbarossa.banbarossa" target="_blank" class="text-white"><i class="lni lni-facebook-oval"></i></a></h2>
+          <h2><a class="text-white" href="https://www.instagram.com/banbarossa/" target="_blank"><i class="lni lni-instagram-original"></i></a></h2>
       </div>
     </div>
 </aside>

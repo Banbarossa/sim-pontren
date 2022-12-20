@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inventory;
-use App\Models\InventoryCategory;
 use Illuminate\Http\Request;
+use App\Models\Ruang;
 
-
-
-class InventoryController extends Controller
+class RuangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory.masterinventory');
+        //
     }
 
     /**
@@ -27,8 +24,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        $data = InventoryCategory::orderBy('nama', 'asc')->get();
-        return view('inventory.inventory-create', ['data' => $data]);
+        //
     }
 
     /**
@@ -39,15 +35,7 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedata = $request->validate([
-            'nama' => 'required',
-
-        ]);
-
-        Inventory::create([
-            'nama' => $request->nama,
-            'kode' => $request->kode,
-        ]);
+        //
     }
 
     /**
@@ -58,11 +46,8 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        $data = Inventory::where('id', $id)
-            ->with('Ruang',)
-            ->with('InventoryCategory')
-            ->first();
-        return view('inventory.inventory-view', ['data' => $data]);
+        $ruang = Ruang::where('id', $id)->first();
+        return view('ruang.ruang-view', ['data' => $ruang]);
     }
 
     /**
@@ -73,8 +58,7 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-
-        return view('inventory.inventory-edit', ['data' => $id]);
+        //
     }
 
     /**

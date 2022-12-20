@@ -5021,3 +5021,6 @@ nav ul li:hover {
     border-radius: 50%;
     border: 5px solid #cfd2cf;
 }
+.cursor {
+    cursor: pointer;
+}

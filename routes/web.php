@@ -10,6 +10,7 @@ use App\Http\Livewire\Suratkeluar\Mastersuratkeluar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuratmasukController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\RuangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->n
 
 Route::resource('/sdm', SdmController::class);
 Route::resource('/sarpras/gedung', GedungController::class);
+Route::resource('/sarpras/ruang', RuangController::class);
 Route::resource('/sarpras/inventory', InventoryController::class);
 Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 
