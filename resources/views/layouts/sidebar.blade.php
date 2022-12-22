@@ -61,6 +61,12 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item {{ Request::is('rapat*') ? 'active' :"" }}">
+          <a href="{{ route('rapat.master') }}">
+            <span class="me-3"><i class="lni lni-consulting"></i></span>
+            <span class="text">Manajemen Rapat</span>
+          </a>
+        </li>
         <li class="nav-item nav-item-has-children {{ Request::is('sarpras/*') ? 'active':"" }}">
           <a
             href="#0"
@@ -85,12 +91,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item {{ Request::is('rapat*') ? 'active' :"" }}">
-          <a href="{{ route('rapat.master') }}">
-            <span class="me-3"><i class="lni lni-consulting"></i></span>
-            <span class="text">Manajemen Rapat</span>
-          </a>
-        </li>
+       
         <li class="nav-item {{ Request::is('sdm*') ? 'active' :"" }}">
           <a href="/sdm">
             <span class="me-3"><i class="lni lni-consulting"></i></span>
@@ -99,10 +100,10 @@
         </li>
       
 
-        @can('isAdmin')
         <hr>
+        <small class="text-muted ms-4">Pimpinan</small>
         <li class="nav-item">
-              <a href="/admin" class="">
+              <a href="/manager/inventory" class="">
                 <span class="icon">
                   <?xml version="1.0" encoding="utf-8"?>
                   <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -117,20 +118,40 @@
                   </svg>
                   
                 </span>
-                <span>User</span>
+                <span>Mantenance Inventaris</span>
               </a>
             </li>
-            <hr>
-        @endcan
+          <hr>
+          <small class="text-muted ms-4">Maintenance</small>
+            <li class="nav-item">
+              <a href="/maintenance/inventory" class="">
+                <span class="icon">
+                  <?xml version="1.0" encoding="utf-8"?>
+                  <!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                  <svg fill="#000000" width="22" height="22" version="1.1" id="lni_lni-user" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+                  <g>
+                    <path d="M32,36.4c8.2,0,14.9-6.7,14.9-14.9S40.2,6.5,32,6.5s-14.9,6.7-14.9,14.9S23.8,36.4,32,36.4z M32,10
+                      c6.3,0,11.4,5.1,11.4,11.4c0,6.3-5.1,11.4-11.4,11.4c-6.3,0-11.4-5.1-11.4-11.4C20.6,15.2,25.7,10,32,10z"/>
+                    <path d="M62.1,54.4c-8.3-7.1-19-11-30.1-11s-21.8,3.9-30.1,11C1.1,55,1,56.1,1.7,56.9c0.6,0.7,1.7,0.8,2.5,0.2
+                      c7.7-6.5,17.6-10.1,27.9-10.1s20.2,3.6,27.9,10.1c0.3,0.3,0.7,0.4,1.1,0.4c0.5,0,1-0.2,1.3-0.6C63,56.1,62.9,55,62.1,54.4z"/>
+                  </g>
+                  </svg>
+                  
+                </span>
+                <span>Mantenance Inventaris</span>
+              </a>
+            </li>
+
       </ul>
     </nav>
 
-    <div class="promo-box rounded border">
+    {{-- <div class="promo-box rounded border">
       <h3 class="text-white pb-3">Banbarossa.Tech</h3>
       <div class="d-flex justify-content-evenly">
           <h2><a href="https://www.facebook.com/banbarossa.banbarossa" target="_blank" class="text-white"><i class="lni lni-facebook-oval"></i></a></h2>
           <h2><a class="text-white" href="https://www.instagram.com/banbarossa/" target="_blank"><i class="lni lni-instagram-original"></i></a></h2>
       </div>
-    </div>
+    </div> --}}
 </aside>
   <div class="overlay"></div>

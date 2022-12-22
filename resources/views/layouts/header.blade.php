@@ -23,7 +23,7 @@
               >
                 <div class="profile-info">
                   <div class="info">
-                    <h6>khairuddin</h6>
+                    <h6>{{ Auth()->user()->name }}</h6>
                     <div class="image">
                       <img
                         src="{{ asset('assets/images/lead/lead-6.png') }}"
@@ -40,7 +40,7 @@
                 aria-labelledby="profile"
               >
                 <li>
-                  <form action="logout" method="post">
+                  <form action="/logout" method="post">
                     @csrf
                     <button type="submit" style="border: none; background:none" class="ms-3 text-danger"><i class="lni lni-exit me-3"></i> Sign Out</button>
                   </form>

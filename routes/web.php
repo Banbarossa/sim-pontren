@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\RapatController;
 use App\Http\Controllers\SdmController;
 use App\Http\Controllers\GedungController;
 use App\Http\Livewire\Rapat\MasterRapat;
-use App\Http\Livewire\Rapat\RapatAdd;
 use App\Http\Livewire\Suratkeluar\Mastersuratkeluar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuratmasukController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\InventorymaintenanceController;
 use App\Http\Controllers\RuangController;
+use App\Http\Controllers\ManagerinventoryController;
+use App\Http\Controllers\MaintenanceinventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +24,16 @@ use App\Http\Controllers\RuangController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    });
 });
 
-Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah');
+
+Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah')->middleware('can:mudir-admin');
 Route::get('/surat/masuk', [SuratmasukController::class, 'index'])->name('suratmasuk');
 
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
@@ -38,6 +44,9 @@ Route::resource('/sdm', SdmController::class);
 Route::resource('/sarpras/gedung', GedungController::class);
 Route::resource('/sarpras/ruang', RuangController::class);
 Route::resource('/sarpras/inventory', InventoryController::class);
+Route::resource('/manager/inventory', ManagerinventoryController::class);
+Route::resource('/maintenance/inventory', MaintenanceinventoryController::class);
+Route::resource('/sarpras/mantenance', InventorymaintenanceController::class);
 Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 
 

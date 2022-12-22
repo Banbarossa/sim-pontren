@@ -109,16 +109,6 @@
                            </div>
                        
                          
-                          {{-- <div class="card-footer py-3">
-                              <p class="text-center mb-2">
-                                 THANK YOU FOR YOUR BUSINESS
-                              </p>
-                              <p class="text-center d-flex align-items-center gap-3 justify-content-center mb-0">
-                                 <span class=""><i class="bi bi-globe"></i> www.domain.com</span>
-                                 <span class=""><i class="bi bi-telephone-fill"></i> T:+11-0462879</span>
-                                 <span class=""><i class="bi bi-envelope-fill"></i> info@example.com</span>
-                              </p>
-                          </div> --}}
                        </div>
                         
 

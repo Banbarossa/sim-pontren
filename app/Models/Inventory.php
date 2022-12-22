@@ -23,4 +23,9 @@ class Inventory extends Model
     {
         return $this->belongsTo(Danainventory::class);
     }
+
+    public function InventoryMaintenaces()
+    {
+        return $this->hasMany(InventoryMantenance::class);
+    }
 }

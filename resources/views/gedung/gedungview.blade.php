@@ -9,7 +9,8 @@
                     <div class="card py-3 px-4">
                         <div class="d-flex align-items-center justify-content-between">
                             <div>
-                                <h3 class="text-muted mb-2">{{ $data->nama }}</h3>
+                                <h3 class="mb-3">Detail Gedung {{ $data->nama }}</h3>
+                                {{-- <h3 class="text-muted mb-2">{{ $data->nama }}</h3> --}}
                                 <p class="d-block">Kepemilikan : {{ $data->kepemilikan }}</p>
                             </div>
                            <div>
