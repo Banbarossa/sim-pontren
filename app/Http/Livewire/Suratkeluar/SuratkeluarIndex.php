@@ -11,7 +11,7 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class SuratkeluarIndex extends Component
 {
-    public $search;
+    public $search, $perpage = 10;
     protected $queryString = ['search'];
     protected $listeners = [
         'suratkeluarAdded' => 'render',
@@ -61,7 +61,7 @@ class SuratkeluarIndex extends Component
             'surat' => SuratKeluar::where('tujuan', 'like', '%' . $this->search . '%')
                 ->orWhere('kode_surat', 'like', '%' . $this->search . '%')
                 ->orWhere('isi_ringkas', 'like', '%' . $this->search . '%')
-                ->latest()->paginate(20),
+                ->latest()->paginate($this->perpage),
         ]);
     }
 }

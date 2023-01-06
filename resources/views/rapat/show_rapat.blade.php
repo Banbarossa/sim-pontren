@@ -14,12 +14,19 @@
                                 @if ($data->attachment)
                                 <a href="{{ asset('storage/'.$data->attachment) }}" target="blank" class="me-2"><i class="lni lni-files"></i></a>
                                 @endif
+
+                                {{-- Admin Can Access start --}}
+                                @can('admin')
                                 <a href="/rapat/{{ $data->unik_id }}/edit" class="me-2 btn btn-outline-warning"><i class="lni lni-pencil"></i></a>
                                 <form action="/rapat/{{ $data->id }}" method="post" class=" me-2 btn btn-outline-danger">
                                     @csrf
                                     @method('delete')
                                     <button class="border-0 text-danger" style="background-color: transparent" type="submit" onclick="return confirm('Apakah anda yakin untuk menghapus')"><i class="lni lni-trash-can"></i></button>
                                 </form>
+                                    
+                                @endcan
+                                {{-- Admin Can Access end --}}
+
                                 <a href="/rapat/{{ $data->unik_id }}/savepdf" class="btn btn-danger">Export  Pdf</a>
 
                             </div>

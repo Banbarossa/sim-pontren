@@ -31,6 +31,7 @@ class SuratmasukTable extends Component
     {
 
         $data = SuratMasuk::where('pengirim', 'like', '%' . $this->search . '%')
+            ->orderBy('created_at', 'desc')
             ->orWhere('isi_ringkas', 'like', '%' . $this->search . '%')
             ->paginate($this->perpage);
         return view('livewire.suratmasuk.suratmasuk-table', ['data' => $data]);

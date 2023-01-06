@@ -5,36 +5,47 @@
             @slot('title')
                 Daftar Surat Keluar
             @endslot
+            @can('admin')
             <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">+ Tambah Data</button>
+            @endcan
         </x-page-title>
 
     </div>
 
 
     <div class="card p-4">
-        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-1">
-            <form action="" class="d-inline">
-                <input class="form-control" type="text" wire:model="search" placeholder="Search">
-            </form>
-        </div>
+        
+        <x-table-header/>
+      
+
         <div class="table-responsive">
             <table class="table text-gray">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Kode Surat</th>
                         <th>Tanggal</th>
                         <th>Tujuan</th>
                         <th class="col-md-4">Isi ringkas</th>
+
+
+                        @can('admin')
                         <th>Aksi</th>
+                        @endcan
+
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($surat as $item)
                     <tr>
+                        <td>{{ $surat->firstItem()+$loop->index}}</td>
                         <td>{{ $item->kode_surat }}</td>
                         <td class="text-nowrap">{{ \Carbon\Carbon::Parse($item->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ $item->tujuan }}</td>
-                        <td class="text-wrap text-break">{{ $item->isi_ringkas }}</td>
+                        <td class="text-wrap text-break px-2">{{ $item->isi_ringkas }}</td>
+
+                        {{-- akses admin --}}
+                        @can('admin')
                         <td>
                             <button class="btn btn-outline-warning" wire:click="$emit('tampilsurat',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit" aria-controls="offcanvasEdit"><i class="lni lni-pencil"></i></button>
                             <button wire:click="confirm({{ $item->id }})" class="btn btn-outline-danger"><i class="lni lni-trash-can"></i></button>
@@ -42,6 +53,8 @@
                                 <a href="http:/storage/{{ $item->image }}" class="btn btn-outline-success btn-pills mt-2 me-2" target="_blank" rel="noopener noreferrer"><i class="lni lni-empty-file"></i></a>    
                             @endif
                         </td>
+                        @endcan
+                        {{-- akses admin end --}}
                     </tr>
                     @empty
                     <tr>

@@ -8,7 +8,9 @@
                     @endslot
                     <div class="d-flex">
                         <input type="text" wire:model="search" class="form-control me-3" placeholder="Search">
+                        @can('admin')
                         <a href="/rapat/create" class="btn btn-primary px-2 d-inline">Tambah</a>
+                        @endcan
                     </div>
                 </x-page-title>
             </div>
@@ -34,7 +36,6 @@
                                 <div class="d-flex justify-content-between align-items-center mt-2">
                                     <h4 class="card-title">{{ \carbon\carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</h4>
                                     <small class="card-title text-muted">{{ \carbon\carbon::parse($item->tanggal)->diffForHumans() }}</small>
-                                    {{-- <small class="text-muted">{{ $item->pimpinan }}</small> --}}
                                 </div>  
                                 <div class="overflow-auto mt-3" style="height: 5rem">
                                     <p class="card-text">{{ $item->deskripsi }}</p>

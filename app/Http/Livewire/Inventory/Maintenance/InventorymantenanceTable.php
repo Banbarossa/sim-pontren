@@ -9,7 +9,7 @@ class InventorymantenanceTable extends Component
 {
     public function render()
     {
-        $data = InventoryMantenance::with('Inventory')->get();
+        $data = InventoryMantenance::latest()->with('Inventory')->paginate(10);
         return view('livewire.inventory.maintenance.inventorymantenance-table', ['data' => $data]);
     }
 }

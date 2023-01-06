@@ -27,6 +27,9 @@
           </a>
         </li>
 
+        {{-- Management Surat Akses:mudir-admin start--}}
+       
+        @can('mudir-admin')
         <li class="nav-item nav-item-has-children {{ Request::is('surat/*') ? 'active':"" }}">
           <a
             href="#0"
@@ -61,6 +64,11 @@
             </li>
           </ul>
         </li>
+        @endcan
+
+         {{-- Management Surat Akses:mudir-admin end--}}
+
+
         <li class="nav-item {{ Request::is('rapat*') ? 'active' :"" }}">
           <a href="{{ route('rapat.master') }}">
             <span class="me-3"><i class="lni lni-consulting"></i></span>
@@ -92,14 +100,21 @@
           </ul>
         </li>
        
+
+        @can('admin')
         <li class="nav-item {{ Request::is('sdm*') ? 'active' :"" }}">
           <a href="/sdm">
             <span class="me-3"><i class="lni lni-consulting"></i></span>
             <span class="text">GTK / Kependidikan</span>
           </a>
         </li>
-      
+        @endcan
+        
 
+
+
+        {{-- Akses Khusus Mudir start --}}
+        @can('mudir')
         <hr>
         <small class="text-muted ms-4">Pimpinan</small>
         <li class="nav-item">
@@ -121,6 +136,11 @@
                 <span>Mantenance Inventaris</span>
               </a>
             </li>
+          @endcan
+          {{-- Akses Khusus Mudir start --}}
+          
+          {{-- akses khusus maintenace stat--}}
+          @can('maintenance')
           <hr>
           <small class="text-muted ms-4">Maintenance</small>
             <li class="nav-item">
@@ -142,8 +162,20 @@
                 <span>Mantenance Inventaris</span>
               </a>
             </li>
+          @endcan
+          {{-- akses khusus maintenace end--}}
 
+          {{-- user start --}}
+          <li class="nav-item {{ Request::is('user*') ? 'active' :"" }}">
+            <a href="{{ route('user') }}">
+              <span class="me-3"><i class="lni lni-consulting"></i></span>
+              <span class="text">User</span>
+            </a>
+          </li>
+         
+          {{-- user end --}}
       </ul>
+
     </nav>
 
     {{-- <div class="promo-box rounded border">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventory;
+use App\Models\InventoryMantenance;
 
 class MaintenanceinventoryController extends Controller
 {
@@ -46,11 +47,17 @@ class MaintenanceinventoryController extends Controller
      */
     public function show($id)
     {
-        $data = Inventory::where('id', $id)
+
+        $maint = InventoryMantenance::find($id);
+
+        $data = Inventory::where('id', $maint->inventory_id)
             ->with('Ruang',)
             ->with('InventoryCategory')
             ->first();
-        return view('inventory.maintenance.inventory-view', ['data' => $data]);
+        return view('inventory.maintenance.inventory-view', [
+            'data' => $data,
+            'maint' => $maint
+        ]);
     }
 
     /**
@@ -73,7 +80,16 @@ class MaintenanceinventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'analisa_biaya' => 'required'
+        ]);
+
+        $barang = InventoryMantenance::find($id);
+        $barang->pemeriksa = Auth()->user()->name;
+        $barang->analisa_biaya = $request->analisa_biaya;
+        $barang->status_periksa = 1;
+        $barang->save();
+        return redirect('/maintenance/inventory')->with('success', 'Data berhasil di tambahan');
     }
 
     /**
@@ -82,6 +98,11 @@ class MaintenanceinventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function approved(Request $request, $id)
+    {
+        dd($request);
+    }
     public function destroy($id)
     {
         //

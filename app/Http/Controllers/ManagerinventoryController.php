@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Inventory;
+use App\Models\InventoryMantenance;
 
 class ManagerinventoryController extends Controller
 {
@@ -13,7 +15,7 @@ class ManagerinventoryController extends Controller
      */
     public function index()
     {
-        return view('inventory.manager.inventory-table');
+        return view('inventory.maintenance.inventory-table');
     }
 
     /**
@@ -45,7 +47,16 @@ class ManagerinventoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $maint = InventoryMantenance::find($id);
+
+        $data = Inventory::where('id', $maint->inventory_id)
+            ->with('Ruang',)
+            ->with('InventoryCategory')
+            ->first();
+        return view('inventory.maintenance.inventory-view', [
+            'data' => $data,
+            'maint' => $maint
+        ]);
     }
 
     /**

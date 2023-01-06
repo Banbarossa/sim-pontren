@@ -24,6 +24,6 @@
            <x-forms.input type="text" name="lulus" id="lulus" label="Lulus" model="lulus"/>
            <x-forms.input type="number" step="0.01" name="ipk" id="ipk" label="IPK" model="ipk"/>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-secondary">Submit</button>
     </form>
 </div>

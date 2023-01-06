@@ -3,10 +3,6 @@
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalCenterTitle">Tambah surat Masuk
             </h5>
-            <button type="button" class="close" data-bs-dismiss="modal"
-                aria-label="Close">
-                <i data-feather="x"></i>
-            </button>
         </div>
         <div class="modal-body">
             
@@ -29,11 +25,6 @@
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-light-secondary"
-                data-bs-dismiss="modal">
-                <i class="bx bx-x d-block d-sm-none"></i>
-                <span class="">Close</span>
-            </button>
             <button type="submit" class="btn btn-secondary ml-1"
             data-bs-dismiss="modal">
                 <span wire:loading wire:target="store" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

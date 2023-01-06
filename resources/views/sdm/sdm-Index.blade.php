@@ -8,12 +8,18 @@
 
     <section class="table-components">
         <div class="container-fluid mt-4">
-            <div class="d-flex justify-content-between">
-                <h3 class="mb-4 border-bottom">Data Karyawan/Staff</h3>
-                <a href="/sdm/create" class="btn btn-primary px-5 mb-3">Tambah</a>
-            </div>
+            <x-page-title>
+                @slot('title')
+                    Data Guru dan Staff
+                @endslot
+                @can('admin')
+                <a href="/sdm/create" class="btn btn-secondary px-5">Tambah</a>
+                @endcan
+            </x-page-title>
 
-            <div class="row">
+
+
+            <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="card-style mb-4">
                         <livewire:sdm.sdm-table>

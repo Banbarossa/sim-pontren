@@ -22,6 +22,7 @@ class RapatController extends Controller
 
     public function create()
     {
+        $this->authorize('admin');
         $sdm = Sdm::all();
         return view('rapat.tambah_rapat', ['data' => $sdm]);
     }
@@ -29,7 +30,7 @@ class RapatController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->states);
+        $this->authorize('admin');
         $validatedData = $request->validate([
             'tanggal'   => 'required',
             'pimpinan'  => 'required|min:4',
@@ -56,11 +57,11 @@ class RapatController extends Controller
             'unik_id' => Str::random(40),
             'tanggal' => $validatedData['tanggal'],
             'pimpinan' => $validatedData['pimpinan'],
-            'notulen' => 'Banbarossa',
+            'notulen' => Auth()->user()->name,
             'deskripsi' => ucFirst($validatedData['deskripsi']),
             'kesimpulan' => $validatedData['kesimpulan'],
             'images' => $validatedData['images'],
-            'attachment' => $validatedData['attachment']
+            'attachment' => $validatedData['attachment'],
         ]);
         Alert::toast('Data Berhasil ditambahkan', 'success');
         return redirect('/rapat');

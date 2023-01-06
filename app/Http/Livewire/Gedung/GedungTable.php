@@ -9,12 +9,16 @@ use Livewire\WithPagination;
 class GedungTable extends Component
 {
     public $listeners = ['gedungupdate' => 'render'];
+    public $search, $perpage;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
-        $gedung = Gedung::latest()->paginate(20);
+        $gedung = Gedung::latest()
+            ->where('nama', 'like', '%' . $this->search . '%')
+            ->paginate($this->perpage);
+
         return view('livewire.gedung.gedung-table', ['data' => $gedung]);
     }
 

@@ -23,10 +23,6 @@
                                   <div class="col-12 col-lg-6">
                                     <h5 class="mb-0">Detail Ruang</h5>
                                   </div>
-                                  <div class="col-12 col-lg-6 text-md-end">
-                                    <a href="javascript:;" class="btn btn-sm btn-danger me-2"><i class="bi bi-file-earmark-pdf-fill"></i> Export as PDF</a>
-                                    <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-secondary"><i class="bi bi-printer-fill"></i> Print</a>
-                                  </div>
                                 </div>
                            </div>
                            <div class="card-header py-2 bg-light">

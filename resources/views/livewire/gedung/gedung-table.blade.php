@@ -1,9 +1,8 @@
 <div class="card p-2">
-    <div class="card-header">
-        <div class="col-8 col-md-6 col-lg-4">
-            <input type="text" placeholder="Search" wire:model="search" class="form-control">
-        </div>
-    </div>
+    <x-table-header/>
+
+
+    
     <div class="table-responsive mt-3">
         <table class="table table-stripped">
             <thead>

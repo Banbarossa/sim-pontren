@@ -58,38 +58,29 @@
             </div>
             <div class="col-lg-9">
                 <div class="card-style mb-4">
-                    <ul class="nav nav-pills border-bottom pb-1" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills border-bottom pb-1 card-header" id="pills-tab" role="tablist">
                         <li class="nav-item me-2" role="presentation">
                           <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Keluarga</button>
                         </li>
                         <li class="nav-item me-2" role="presentation">
                           <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Pendidikan</button>
                         </li>
-                        <li class=" me-2" role="presentation">
-                          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Jabatan</button>
-                        </li>
-                        <li class=" me-2" role="presentation">
-                          <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
-                        </li>
                     </ul>
                     {{-- <hr>  --}}
-                    <div class="tab-content mt-5" id="pills-tabContent">
+                    <div class="tab-content mt-3" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-primary px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#sdmKeluargaAdd" aria-controls="sdmKeluargaAdd">Tambah</button>
+                                <button class="btn btn-secondary px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#sdmKeluargaAdd" aria-controls="sdmKeluargaAdd">Tambah</button>
                             </div>
                             <livewire:sdm.keluarga-table :data="$data"/>   
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-primary px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#riwayatpedidikanAdd" aria-controls="riwayatpedidikanAdd">Tambah</button>
+                                <button class="btn btn-secondary px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#riwayatpedidikanAdd" aria-controls="riwayatpedidikanAdd">Tambah</button>
                             </div>
                             <livewire:sdm.pendidikan.pendidikan-table :data="$data"/>
                         </div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-                            <livewire:sdm.riwayatjabatan-table/>
-                        </div>
-                        <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
+                        
                     </div>
                 </div>
             </div>

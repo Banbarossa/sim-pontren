@@ -18,13 +18,14 @@
                <td class="text-center">{{\Carbon\Carbon::parse( $item->created_at)->diffForHumans()}}</td>
                <td class="text-center " id="status">
                   @if ($item->status_periksa == 0)
-                     <a href="/maintenance/inventory/{{ $item->inventory->id }}"class="btn btn-outline-danger rounded-pill">uncheked</a>
+                     <a href="/maintenance/inventory/{{ $item->id }}"class="btn btn-danger rounded-pill">Uncheck</a>
                   @elseif($item->status_periksa == 1)
-                     <a href="/sarpras/inventory/{{ $item->inventory->id }}"class="btn btn-outline-danger rounded-pill">Checked</a>
+                     <a href="/maintenance/inventory/{{ $item->id }}"class="btn btn-outline-warning rounded-pill">Check</a>
+                     
                   @elseif($item->status_periksa == 2)
-                     <a href="/sarpras/inventory/{{ $item->inventory->id }}"class="btn btn-outline-danger rounded-pill">Approved</a>
+                     <a href=""class="btn btn-outline-success rounded-pill">Approved</a>
                   @else
-                     <a href="/sarpras/inventory/{{ $item->inventory->id }}"class="btn btn-outline-danger rounded-pill">Cancel</a>
+                     <a href=""class="btn btn-outline-danger rounded-pill">Cancel</a>
                   @endif
                   
             </tr>
@@ -35,6 +36,7 @@
           
         </tbody>
      </table>
-    
+
+     {{ $data->links() }}
 
 </div>

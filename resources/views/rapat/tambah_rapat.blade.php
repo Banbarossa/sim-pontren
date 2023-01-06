@@ -28,17 +28,6 @@
                                     @endError
                                 </div>
 
-                                <div class="mb-3 col-12">
-                                    <label for="select2">Peserta Rapat</label>
-                                    <select id="select2" class="form-select js-example-basic-multiple" name="states[]" multiple="multiple">
-                                        @foreach ($data as $item)
-                                        <option value="{{ $item->nama }}">{{ $item->nama }}</option>
-                                            
-                                        @endforeach
-                                       
-                                        
-                                    </select> 
-                                </div>
 
                                 <div>
                                     @error('kesimpulan')

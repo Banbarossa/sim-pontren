@@ -9,15 +9,15 @@
                     @slot('title')
                         Data Surat Masuk
                     @endslot
+                    @can('admin')
                     <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#suratmasukadd" aria-controls="suratmasukadd">+ Tambah Data</button>
+                    @endcan
                 </x-page-title>
 
             </div>
             <div class="row mt-3">         
                 <div class="col-lg-12">
                     <livewire:suratmasuk.suratmasuk-table/>
-                    {{-- <livewire:suratmasuk.incomming-letter/> --}}
-
                 </div>
             </div>
         </div>

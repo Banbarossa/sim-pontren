@@ -1,24 +1,9 @@
-<div class="card p-2">
-    <div class="">
-        <div class="d-flex justify-content-between">
-            <div class="col-4 col-md-6 col-lg-8">
-                <div class="col-4">
-                    <select name="perpage" wire:model="perpage" id="perpage" class="form-select">
-                        <option value="10">10 Per Page</option>
-                        <option value="25">25 Per Page</option>
-                        <option value="50">50 Per Page</option>
-                    </select>
-                </div>
-    
-            </div>
-            <div class="col-8 col-md-6 col-lg-4 mb-3">
-                <input type="text" placeholder="Search" wire:model="search" class="form-control">
-            </div>
-        </div>
-        {{-- <span>
-            <input type="text" placeholder="Search" wire:model="search" class="form-control">
-        </span> --}}
-    </div>
+<div class="card p-4">
+    {{-- Table Header disini --}}
+    <x-table-header/>
+    {{-- Table Header akhir --}}
+
+
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -27,8 +12,10 @@
                     <th>Pengirim</th>
                     <th>Nomor surat</th>
                     <th>Tanggal</th>
-                    <th>Isi Ringkas</th>
+                    <th class="px-3">Isi Ringkas</th>
+                    @can('admin')
                     <th>Action</th>
+                    @endcan
                 </tr>
             </thead>
             <tbody>
@@ -38,15 +25,19 @@
                     <td class="text-wrap px-2">{{ $item->pengirim }}</td>
                     <td class="text-nowrap px-2">{{ $item->nomor_surat }}</td>
                     <td class="text-nowrap px-2">{{ \Carbon\Carbon::parse($item->tanggal)->format('d/m/Y') }}</td>
-                    <td >{{ $item->isi_ringkas }}</td>
+                    <td class="px-3">{{ $item->isi_ringkas }}</td>
+
+                    {{-- akses admin --}}
+                    @can('admin')
                     <td width="100px">
-                        
                         <button class="btn btn-outline-warning" wire:click="$emit('editsuratmasuk',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit" aria-controls="offcanvasEdit"><i class="lni lni-pencil"></i></button>
                         <button class="btn btn-outline-danger" wire:click="confirm({{ $item->id }})">
                             <span class="spinner-border spinner-border-sm" wire:loading wire:target="destroy" role="status" aria-hidden="true"></span>
                             <span><i class="lni lni-trash-can"></i></span>
                         </button>
                     </td>
+                    @endcan
+                    {{-- akses Admin --}}
                 </tr class="text-nowrap">
                 @empty
                     <tr>

@@ -12,6 +12,7 @@ use App\Http\Controllers\InventorymaintenanceController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\ManagerinventoryController;
 use App\Http\Controllers\MaintenanceinventoryController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,17 +31,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     });
+    Route::get('/surat/masuk', [SuratmasukController::class, 'index'])->name('suratmasuk')->middleware('can:mudir-admin');
+    Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah')->middleware('can:mudir-admin');
 });
 
 
-Route::get('/surat/keluar', Mastersuratkeluar::class)->name('suratkeluar.dayah')->middleware('can:mudir-admin');
-Route::get('/surat/masuk', [SuratmasukController::class, 'index'])->name('suratmasuk');
 
 Route::get('/rapat', MasterRapat::class)->name('rapat.master');
 Route::resource('/rapat', RapatController::class)->except('index');
 Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
 
-Route::resource('/sdm', SdmController::class);
+Route::resource('/sdm', SdmController::class)->middleware('can:admin');
 Route::resource('/sarpras/gedung', GedungController::class);
 Route::resource('/sarpras/ruang', RuangController::class);
 Route::resource('/sarpras/inventory', InventoryController::class);
@@ -48,14 +49,17 @@ Route::resource('/manager/inventory', ManagerinventoryController::class);
 Route::resource('/maintenance/inventory', MaintenanceinventoryController::class);
 Route::resource('/sarpras/mantenance', InventorymaintenanceController::class);
 Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
+Route::get('/user', function () {
+    return view('user.master-user', ['user' => User::all()]);
+})->name('user');
 
 
-// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
-Route::group(['prefix' => 'laravel-filemanager'], function () {
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+// Route::group(['prefix' => 'laravel-filemanager'], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
 
 Auth::routes();
 
