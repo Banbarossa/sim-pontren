@@ -166,12 +166,14 @@
           {{-- akses khusus maintenace end--}}
 
           {{-- user start --}}
+          @can('admin')
           <li class="nav-item {{ Request::is('user*') ? 'active' :"" }}">
             <a href="{{ route('user') }}">
               <span class="me-3"><i class="lni lni-consulting"></i></span>
               <span class="text">User</span>
             </a>
           </li>
+          @endcan
          
           {{-- user end --}}
       </ul>

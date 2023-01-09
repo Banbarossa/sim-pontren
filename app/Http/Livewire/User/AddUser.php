@@ -14,7 +14,7 @@ class AddUser extends Component
 
     protected $rules = [
         'name' => 'required',
-        'email' => 'email|required|',
+        'email' => 'email|required|unique:users',
         'role' => 'required',
         'password' => 'required|min:8'
     ];

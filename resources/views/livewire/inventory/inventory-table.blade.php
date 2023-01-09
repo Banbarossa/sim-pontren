@@ -48,10 +48,12 @@
                        <td>{{ $item->danainventory->nama}}</td>
                         <td>
                             <a href="/sarpras/inventory/{{ $item->id }}" class="btn btn-outline-secondary"><i class="lni lni-eye"></i></a>
-                            {{-- <button class="btn btn-outline-secondary" wire:click="edit('{{ $item->id }}')"><i class="lni lni-pencil"></i></button> --}}
+
+                            @can('admin-maintenance')
                             <a href="/sarpras/inventory/{{ $item->id }}/edit" class="btn btn-outline-secondary"><i class="lni lni-pencil"></i></a>
-                            {{-- <button class="btn btn-outline-warning"><i class="lni lni-pencil"></i></button> --}}
                             <button class="btn btn-outline-danger" wire:click="showConfirm('{{ $item->id }}')"><i class="lni lni-trash-can"></i></button>
+                                
+                            @endcan
                         </td>
                     </tr>
                 @endforeach

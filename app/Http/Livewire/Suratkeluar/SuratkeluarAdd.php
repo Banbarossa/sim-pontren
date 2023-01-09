@@ -12,14 +12,15 @@ class SuratkeluarAdd extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-    public $tanggal, $tujuan, $isi_ringkas, $image, $generateDate, $generateId;
+    public $tanggal, $tujuan, $isi_ringkas, $image, $generateDate, $generateId, $nomor;
     public $kode_surat = '';
     protected $listeners = ['suratkeluarAdded' => 'mount'];
 
     protected $rules = [
+        'kode_surat' => 'unique:surat_keluars',
         'tanggal'       => 'required',
         'tujuan'        => 'required|min:4|max:255',
-        // 'image'         => 'max:2*1024|mimes:jpg,png,pdf,xlsx,docx'
+
     ];
 
     public function mount()
@@ -28,12 +29,12 @@ class SuratkeluarAdd extends Component
 
     public function updated($field)
     {
-        $lastrow = SuratKeluar::orderBy('id', 'desc')->first();
-        if ($lastrow) {
-            $this->generateId = str_pad($lastrow->id + 1, 3, '0', STR_PAD_LEFT);
-        } else {
-            $this->generateId = str_pad(1, 3, '0', STR_PAD_LEFT);
-        }
+        $this->generateId = str_pad($this->nomor + 1, 3, '0', STR_PAD_LEFT);
+        // $lastrow = SuratKeluar::orderBy('id', 'desc')->first();
+        // if ($lastrow) {
+        // } else {
+        //     $this->generateId = str_pad(1, 3, '0', STR_PAD_LEFT);
+        // }
 
         $generateDate = explode('-', $this->tanggal);
         if ($this->tanggal) {

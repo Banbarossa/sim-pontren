@@ -9,7 +9,10 @@
                     @slot('title')
                         Data Bangunan/Gedung
                     @endslot
+                    @can('admin-maintenance')
                     <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#gedungadd" aria-controls="gedungadd">+ Tambah Data</button>
+                        
+                    @endcan
                 </x-page-title>
 
             </div>

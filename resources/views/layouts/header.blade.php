@@ -23,7 +23,7 @@
               >
                 <div class="profile-info">
                   <div class="info">
-                    <h6>{{ Auth()->user()->name }}</h6>
+                    <h6>{{ Str::ucfirst(Auth()->user()->name) }}</h6>
                     <div class="image">
                       <img
                         src="{{ asset('assets/images/lead/lead-6.png') }}"

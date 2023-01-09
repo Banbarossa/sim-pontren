@@ -1,9 +1,11 @@
 <div>
     <h4 class="border-bottom text-gray mb-3">Tambah data</h4>
+    <h3 class="my-4"><pre>{{ $kode_surat }}</pre></h3>
+
     <form action=""  method="post" wire:submit.prevent="store" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="kode_surat" class="form-label">Kode Surat</label>
-            <input type="text" class="form-control" wire:model="kode_surat"  id="kode_surat" readonly>
+            <label for="nomor" class="form-label">Kode Surat</label>
+            <input type="text" class="form-control" wire:model="nomor"  id="nomor" >
             
         </div>
         <div class="mb-3">

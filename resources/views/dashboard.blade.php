@@ -5,14 +5,25 @@
         <div class="container-fluid mt-4">
             <div class="row">
                 
-                <div class="col-lg-12">
-                    <div class="card p-3">Dasdboard</div>
-                </div>
+
+                <x-page-title>
+                    @slot('title')
+                    Dashboard
+                    @endslot
+                </x-page-title>
+
+                
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 
                 <div class="col-lg-12">
-                    
+                    <div class="card">
+                        <div class="card-header">Greating</div>
+                        <div class="card-body">
+                            Selamat Datang <strong>{{ Str::ucfirst(Auth()->User()->name) }}</strong> Anda Login Sebagai {{ Str::ucfirst(Auth()->User()->role)  }}
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
