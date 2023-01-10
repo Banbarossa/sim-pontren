@@ -14,6 +14,7 @@ use App\Http\Controllers\ManagerinventoryController;
 use App\Http\Controllers\MaintenanceinventoryController;
 use App\Models\User;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,11 +37,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user', function () {
         return view('user.master-user', ['user' => User::all()]);
     })->name('user')->middleware('can:admin');
-    Route::get('/rapat', MasterRapat::class)->name('rapat.master');
-    Route::resource('/rapat', RapatController::class)->except('index');
-    Route::get('/rapat/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
+    // Route::get('/rapat', MasterRapat::class)->name('rapat.master');
+    // Route::resource('/rapat', RapatController::class)->except('index');
+    Route::resource('/notulensi', RapatController::class);
+    Route::get('/notulensi/{unik_id}/savepdf', [RapatController::class, 'createpdf'])->name('rapat.savepdf');
 
-    Route::resource('/sdm', SdmController::class)->middleware('can:admin')->except('index', 'store', 'update');
+    Route::resource('/sdm', SdmController::class)->middleware('can:mudir-admin')->except('store', 'update');
     Route::resource('/sarpras/gedung', GedungController::class)->except('create', 'edit', 'update', 'destroy');
     Route::resource('/sarpras/ruang', RuangController::class)->except('index', 'create', 'store', 'edit', 'update', 'destroy');
     Route::resource('/sarpras/inventory', InventoryController::class)->except('update', 'destroy');
@@ -49,7 +51,6 @@ Route::middleware(['auth'])->group(function () {
     // Route::resource('/sarpras/mantenance', InventorymaintenanceController::class)->except('index','create',);
     Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 });
-
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

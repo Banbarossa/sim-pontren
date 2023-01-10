@@ -10,8 +10,14 @@
         </div>
         <div class="modal-body">
             
-            <x-forms.input name="nama" model="nama" type="text" label="Nama" placeholder="Nama Ruangan">
-            </x-forms.input>
+           
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control @error('nama') is-invalid @enderror"  wire:model="nama" id="nama" autofocus>
+                @error('nama')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
             
             <div class="form-group">

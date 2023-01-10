@@ -18,8 +18,6 @@ class MasterRapat extends Component
         $data = Meeting::where('tanggal', 'like', '%' . $this->search . '%')
             ->orwhere('deskripsi', 'like', '%' . $this->search . '%')
             ->latest()->paginate(6);
-        return view('livewire.rapat.master-rapat', ['data' => $data])
-            ->extends('layouts.template')
-            ->section('content');
+        return view('livewire.rapat.master-rapat', ['data' => $data]);
     }
 }

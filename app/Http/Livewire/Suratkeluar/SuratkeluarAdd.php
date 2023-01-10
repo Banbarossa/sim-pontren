@@ -29,7 +29,7 @@ class SuratkeluarAdd extends Component
 
     public function updated($field)
     {
-        $this->generateId = str_pad($this->nomor + 1, 3, '0', STR_PAD_LEFT);
+        $this->generateId = str_pad($this->nomor, 3, '0', STR_PAD_LEFT);
         // $lastrow = SuratKeluar::orderBy('id', 'desc')->first();
         // if ($lastrow) {
         // } else {

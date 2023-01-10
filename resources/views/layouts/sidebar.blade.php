@@ -70,7 +70,7 @@
 
 
         <li class="nav-item {{ Request::is('rapat*') ? 'active' :"" }}">
-          <a href="{{ route('rapat.master') }}">
+          <a href="{{ route('notulensi.index') }}">
             <span class="me-3"><i class="lni lni-consulting"></i></span>
             <span class="text">Manajemen Rapat</span>
           </a>

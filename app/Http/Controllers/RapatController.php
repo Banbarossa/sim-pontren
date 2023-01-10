@@ -16,7 +16,7 @@ class RapatController extends Controller
 
     public function index()
     {
-        //
+        return view('rapat.master');
     }
 
 
@@ -39,6 +39,7 @@ class RapatController extends Controller
             'images'    => 'image|file|max:2048|mimes:jpg,jpeg,gif,png',
             'attachment' => 'file|max:3*1024|mimes:docx,xslx,pdf',
         ]);
+
 
         if ($request->file('images')) {
             $validatedData['images'] = $request->file('images')->store('rapat', 'public');

@@ -4,8 +4,8 @@
 
     <form action=""  method="post" wire:submit.prevent="store" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="nomor" class="form-label">Kode Surat</label>
-            <input type="text" class="form-control" wire:model="nomor"  id="nomor" >
+            <label for="nomor" class="form-label">Nomor Urut</label>
+            <input type="number" class="form-control" wire:model="nomor"  id="nomor"  >
             
         </div>
         <div class="mb-3">

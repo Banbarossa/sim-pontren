@@ -1,11 +1,27 @@
 <div>
     <form action="" wire:submit.prevent="store">
+     
         <div class="mb-3">
-            <x-forms.input type="text" model="name" name="name" label="Nama" id="name"></x-forms.input>
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror"  wire:model="name" id="name" autofocus>
+            @error('name')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
+
+
+
+
         <div class="mb-3">
-            <x-forms.input type="email" model="email" name="email" label="Email" id="email"></x-forms.input>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control @error('email') is-invalid @enderror"  wire:model="email" id="email" autofocus>
+            @error('email')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
+
+
+
         <div class="mb-3">
             <label for="role">Role</label>
             <select name="role" id="role" wire:model="role" class="form-select @error($name) is-invalid @enderror">
@@ -20,9 +36,18 @@
             </span>
         @enderror
         </div>
-        <div class="mb-5">
-            <x-forms.input type="text" model="password" name="password" label="Password" id="password"></x-forms.input>
+    
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control @error('password') is-invalid @enderror"  wire:model="password" id="password" autofocus>
+            @error('password')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
+
+        
+
         <div class="">
             <button type="submit" class="btn btn-secondary px-3">Submit</button>
         </div>

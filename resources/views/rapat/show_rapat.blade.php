@@ -17,8 +17,8 @@
 
                                 {{-- Admin Can Access start --}}
                                 @can('admin')
-                                <a href="/rapat/{{ $data->unik_id }}/edit" class="me-2 btn btn-outline-warning"><i class="lni lni-pencil"></i></a>
-                                <form action="/rapat/{{ $data->id }}" method="post" class=" me-2 btn btn-outline-danger">
+                                <a href="/notulensi/{{ $data->unik_id }}/edit" class="me-2 btn btn-outline-warning"><i class="lni lni-pencil"></i></a>
+                                <form action="/notulensi/{{ $data->id }}" method="post" class=" me-2 btn btn-outline-danger">
                                     @csrf
                                     @method('delete')
                                     <button class="border-0 text-danger" style="background-color: transparent" type="submit" onclick="return confirm('Apakah anda yakin untuk menghapus')"><i class="lni lni-trash-can"></i></button>
@@ -27,7 +27,7 @@
                                 @endcan
                                 {{-- Admin Can Access end --}}
 
-                                <a href="/rapat/{{ $data->unik_id }}/savepdf" class="btn btn-danger">Export  Pdf</a>
+                                <a href="/notulensi/{{ $data->unik_id }}/savepdf" class="btn btn-danger">Export  Pdf</a>
 
                             </div>
                         </div>
@@ -56,15 +56,15 @@
                                     width=100%;
                                     border-radius:5px">
                                     @if ($item->images)
-                                        <a href="/rapat/{{ $item->unik_id }}"><img src="{{ asset('storage/'.$item->images) }}" alt="" class="img-thumbnail"></a>
+                                        <a href="/notulensi/{{ $item->unik_id }}"><img src="{{ asset('storage/'.$item->images) }}" alt="" class="img-thumbnail"></a>
                                     @else
-                                        <a href="/rapat/{{ $item->unik_id }}"><img src="{{ asset('images/1.jpg')}}" alt="" class="img-thumbnail"></a>
+                                        <a href="/notulensi/{{ $item->unik_id }}"><img src="{{ asset('images/1.jpg')}}" alt="" class="img-thumbnail"></a>
                                     @endif
                                 </div>
                                 
                             </div>
                             <div class="col-8">
-                                <a class="d-block" href="/rapat/{{ $item->unik_id }}">{{ $item->deskripsi }}</a>
+                                <a class="d-block" href="/notulensi/{{ $item->unik_id }}">{{ $item->deskripsi }}</a>
                                 <small class="d-block mt-2">{{ $item->tanggal }}</small>
                             </div>
                         </div>

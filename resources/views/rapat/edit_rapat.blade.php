@@ -9,7 +9,7 @@
     @endpush
     <section class="table-components">
         <div class="container-fluid mt-4">
-            <form action="/rapat/{{ $data->unik_id }}" method="POST" enctype="multipart/form-data">
+            <form action="/notulensi/{{ $data->unik_id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="row">

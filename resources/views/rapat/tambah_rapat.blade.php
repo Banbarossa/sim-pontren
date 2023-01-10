@@ -13,7 +13,7 @@
 <div>
     <section class="table-components">
         <div class="container-fluid mt-4">
-            <form action="/rapat" method="POST" enctype="multipart/form-data">
+            <form action="/notulensi" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-8">

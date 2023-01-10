@@ -3,7 +3,6 @@
         <div class="row">
             <div class="col-sm-12 col-md-6 px-4">
 
-                {{-- <x-forms.input type="text" id="nama" name="nama" model="nama" label="Nama" customClass="mb-3"/> --}}
                 <div class="mb-3">
                     <label for="nama">Nama</label>
                 
@@ -22,7 +21,6 @@
                 </div>
 
                 
-                {{-- <x-forms.input type="text" id="nik" name="nik" model="nik" label="N I K" customClass="mb-3"/> --}}
 
                 <div class="mb-3">
                     <label for="nik"> No induk Kependudukkan (N I K)</label>
@@ -41,7 +39,6 @@
                 
                 </div>
                 
-                {{-- <x-forms.input type="text" id="tempat_lahir" name="tempat_lahir" model="tempat_lahir" label="Tempat Lahir" customClass="mb-3"/> --}}
                 <div class="mb-3">
                     <label for="tempat_lahir"> Tempat Lahir</label>
                 
@@ -59,7 +56,6 @@
                 
                 </div>
 
-                {{-- <x-forms.input type="date" id="tanggal_lahir" name="tanggal_lahir" model="tanggal_lahir" label="Tanggal Lahir" customClass="mb-3"/> --}}
                 <div class="mb-3">
                     <label for="tanggal_lahir">Tanggal Lahir</label>
                 
@@ -129,7 +125,6 @@
                     </select>
                 </div>
 
-                {{-- <x-forms.input type="text" id="no_hp" name="no_hp" model="no_hp" label="Nomor Contact (HP)" customClass="mb-3"/> --}}
                 <div class="mb-3">
                     <label for="pendidikan_terakhir">No Hp</label>
                 
@@ -147,7 +142,6 @@
                 
                 </div>
                 
-                {{-- <x-forms.input type="date" id="tanggal_masuk" name="tanggal_masuk" model="tanggal_masuk" label="Tanggal Masuk" customClass="mb-3"/> --}}
                 <div class="mb-3">
                     <label for="tanggal_masuk">Tanggal Masuk</label>
                 
@@ -251,17 +245,7 @@
                     <img src="/storage/{{ $avatar }}" alt="" height="150px">
                 @endif
 
-                {{-- @if ($avatar)
-                <div class="mb-3">
-                    <div wire:loading wire:target="avatar" wire:key="avatar">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                    <img class="" src="{{ $avatar->temporaryUrl() }}" height="200px" alt="">
-                </div>
-                @endif --}}
-                
+                                
 
                 <div class="mb-3">
                     <label for="avatar">Foto</label>

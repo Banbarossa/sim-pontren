@@ -9,13 +9,23 @@
                     <input type="text" wire:model="kode" class="form-control" disabled data-bs-toggle="tooltip"
                     data-bs-placement="top" title="kode - sumber dana - tahun">
                 </div>
+
+
                 <div class="mb-3">
-                    <x-forms.input name="nama" label="Nama" model="nama" id="nama" placeholder="Nama">
-                    </x-forms.input>
+                    <label for="nama" class="form-label">Nama</label>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror"  wire:model="nama" id="nama" autofocus>
+                    @error('nama')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
+
                 <div class="mb-3">
-                    <x-forms.input type="date" model="tanggal" name="tanggal" label="Tanggal Pengadaan" id="tanggal" placeholder="Tanggal Pengadaan">
-                    </x-forms.input>
+                    <label for="tanggal" class="form-label">Tanggal Pengadaan</label>
+                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror"  wire:model="tanggal" id="tanggal" autofocus>
+                    @error('tanggal')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="Ruang">Ruang</label>
@@ -63,14 +73,24 @@
                     </div>
                     @enderror               
                 </div>
+
                 <div class="mb-3">
-                    <x-forms.input name="merek" model="merek" label="Merek" id="merek" placeholder="Merek">
-                    </x-forms.input>
+                    <label for="merek" class="form-label">Merek</label>
+                    <input type="text" class="form-control @error('merek') is-invalid @enderror"  wire:model="merek" id="merek" autofocus>
+                    @error('merek')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
+               
                 <div class="mb-3">
-                    <x-forms.input name="no_seri" model="no_seri" label="Nomor Seri Barang" id="no_seri" placeholder="Nomor Seri Barang">
-                    </x-forms.input>
+                    <label for="nomor_seri" class="form-label">Nomor Seri</label>
+                    <input type="text" class="form-control @error('nomor_seri') is-invalid @enderror"  wire:model="nomor_seri" id="nomor_seri" autofocus>
+                    @error('nomor_seri')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
                 <div class="mb-3">
                     <label for="kondisi">Kondisi</label>
                     <select name="kondisi" id="kondisi" wire:model="kondisi" class="form-select @error('kondisi') is-invalid @enderror">
@@ -85,21 +105,38 @@
                     @enderror
                     
                 </div>
-                <div class=" mb-3">
-                    <x-forms.input type="number" name="harga_perolehan" model="harga_perolehan" label="Harga Perolehan" id="harga_perolehan" placeholder="Harga Perolehan" >
-                    </x-forms.input>
+                
+                <div class="mb-3">
+                    <label for="harga_perolehan" class="form-label">Harga perolehan</label>
+                    <input type="number" class="form-control @error('harga_perolehan') is-invalid @enderror"  wire:model="harga_perolehan" id="harga_perolehan" autofocus>
+                    @error('harga_perolehan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 
             </div>
             <div class=" col-md-6 col-lg-4">
-                <div class=" mb-3">
-                    <x-forms.input name="sumber_perolehan" model="sumber_perolehan" label="Sumber Perolehan" id="sumber_perolehan" placeholder="Sumber Perolehan">
-                    </x-forms.input>
-                </div>
+
+
                 <div class="mb-3">
-                    <x-forms.input type="number" model="jumlah" name="jumlah" label="Jumlah" id="jumlah" placeholder="Jumlah" >
-                    </x-forms.input>
+                    <label for="sumber_perolehan" class="form-label">sumber_perolehan</label>
+                    <input type="text" class="form-control @error('sumber_perolehan') is-invalid @enderror"  wire:model="sumber_perolehan" id="sumber_perolehan" autofocus>
+                    @error('sumber_perolehan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
+
+
+
+                <div class="mb-3">
+                    <label for="jumlah" class="form-label">jumlah</label>
+                    <input type="number" class="form-control @error('jumlah') is-invalid @enderror"  wire:model="jumlah" id="jumlah" autofocus>
+                    @error('jumlah')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
                 <div class="mb-3">
                     <label for="satuan">Satuan</label>
                     <select name="satuan" id="satuan" wire:model="satuan" class="form-select @error('satuan') is-invalid @enderror">
