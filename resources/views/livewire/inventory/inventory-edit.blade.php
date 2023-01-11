@@ -84,9 +84,9 @@
 
                
                 <div class="mb-3">
-                    <label for="nomor_seri" class="form-label">Nomor Seri</label>
-                    <input type="text" class="form-control @error('nomor_seri') is-invalid @enderror"  wire:model="nomor_seri" id="nomor_seri" autofocus>
-                    @error('nomor_seri')
+                    <label for="no_seri" class="form-label">Nomor Seri</label>
+                    <input type="text" class="form-control @error('no_seri') is-invalid @enderror"  wire:model="no_seri" id="no_seri" autofocus>
+                    @error('no_seri')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

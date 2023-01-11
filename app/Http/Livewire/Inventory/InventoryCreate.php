@@ -25,7 +25,11 @@ class InventoryCreate extends Component
     {
         $model = Inventory::latest()->first();
         $date = explode('-', $this->tanggal);
-        $this->kode = str_pad($model->id + 1, 3, '0', STR_PAD_LEFT) . '-' . $this->sumber_dana . '-' . $date[0];
+        if ($model) {
+            $this->kode = str_pad($model->id + 1, 3, '0', STR_PAD_LEFT) . '-' . $this->sumber_dana . '-' . $date[0];
+        } else {
+            $this->kode = '001' . '-' . $this->sumber_dana . '-' . $date[0];
+        }
     }
     public function render()
     {

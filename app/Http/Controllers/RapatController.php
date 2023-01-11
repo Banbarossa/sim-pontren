@@ -65,7 +65,7 @@ class RapatController extends Controller
             'attachment' => $validatedData['attachment'],
         ]);
         Alert::toast('Data Berhasil ditambahkan', 'success');
-        return redirect('/rapat');
+        return redirect('/notulensi');
     }
 
 
@@ -130,7 +130,7 @@ class RapatController extends Controller
         ]);
 
         alert::toast('Data berhasil diubah', 'success');
-        return redirect('/rapat/' . $data->unik_id);
+        return redirect('/notulensi/' . $data->unik_id);
     }
 
 
@@ -151,7 +151,7 @@ class RapatController extends Controller
 
         $data->delete();
         alert::toast('Data berhhasil dihapus', 'success');
-        return redirect('rapat');
+        return redirect('/notulensi');
     }
 
     public function createpdf($unik_id)
