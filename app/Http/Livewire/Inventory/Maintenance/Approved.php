@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire\Inventory\Maintenance;
 
+use App\Models\InventoryMantenance;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class Approved extends Component
 {
     public $catatan;
+    public $maintenance_id;
+    use LivewireAlert;
 
     public function render()
     {
@@ -15,6 +19,12 @@ class Approved extends Component
 
     public function update()
     {
-        dd($this->catatan);
+        InventoryMantenance::where('id', $this->maintenance_id)->update([
+            'approval' => 1,
+            "catatan_approval" => $this->catatan,
+            'approved_oleh' => Auth()->user()->name,
+            'status_periksa' => 2
+        ]);
+        $this->alert('success', "proses Aprroval success");
     }
 }
