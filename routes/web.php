@@ -28,6 +28,7 @@ use App\Models\User;
 
 
 
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('dashboard');
@@ -51,6 +52,9 @@ Route::middleware(['auth'])->group(function () {
     // Route::resource('/sarpras/mantenance', InventorymaintenanceController::class)->except('index','create',);
     Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 });
+
+Route::get('/card/inventory/{id}', [InventoryController::class, 'card']);
+Route::get('/inventaris/{kode}', [InventoryController::class, 'scanqr']);
 
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

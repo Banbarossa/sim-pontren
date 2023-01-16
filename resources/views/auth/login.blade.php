@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="row shadow rounded overflow-hidden">
-                <div class="col-6 d-flex align-items-center justify-content-center" style="background-image:url({{ asset('images/1.jpg') }});background-size: cover; background-position: center;rgba(0, 0, 0, 0.5)">
+                <div class="col-6 d-none d-lg-flex align-items-center justify-content-center" style="background-image:url({{ asset('images/1.jpg') }});background-size: cover; background-position: center;rgba(0, 0, 0, 0.5)">
                     <div class="bg-secondary rounded-pill text-center">
                         <div class="text-white px-5 py-3">
                             PESANTREN  ISLAM
@@ -14,7 +14,7 @@
                     </div>
 
                 </div>
-                <div class="col-6 my-5">
+                <div class="col-12 col-lg-6 my-5">
                     <div>
                         <div class="py-3 text-center">
                             <h2 class="text-muted">Login</h2>

@@ -63,8 +63,10 @@
                                     </Table>
                                  </div>
                                </div>
-                               <div class="col">
-                               
+                               <div class="col text-center">
+                                 {!! QrCode::size(100)->generate($url); !!}
+                                 <a href="/card/inventory/{{ $data->id }}"  class="d-block mx-auto mt-2 btn btn-primary">Cetak Kartu</a>
+                                 {{-- <button class="d-block mx-auto mt-2 btn btn-primary">Cetak Kartu</button> --}}
                               </div>
                               <div class="col">
                                  <table>

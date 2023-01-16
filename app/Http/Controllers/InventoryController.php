@@ -58,11 +58,17 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
+
+
         $data = Inventory::where('id', $id)
             ->with('Ruang',)
             ->with('InventoryCategory')
             ->first();
-        return view('inventory.inventory-view', ['data' => $data]);
+        $url = url('/inventaris/' . $data->kode);
+        return view('inventory.inventory-view', [
+            'data' => $data,
+            'url' => $url
+        ]);
     }
 
     /**
@@ -98,5 +104,26 @@ class InventoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function card($id)
+    {
+        $data = Inventory::find($id);
+        $url = url('/inventaris/' . $data->kode);
+        return view('inventory.card', [
+            'data' => $data,
+            'url' => $url
+        ]);
+    }
+
+    public function scanqr($kode)
+    {
+        $data = Inventory::where('kode', $kode)
+            ->with('Ruang',)
+            ->with('InventoryCategory')
+            ->first();
+
+        return view('inventory.scanqr', ['data' => $data]);
     }
 }
