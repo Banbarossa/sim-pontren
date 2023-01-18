@@ -55,7 +55,7 @@ class InventoryCreate extends Component
             'merek' => $this->merek,
             'no_seri' => $this->no_seri,
             'kondisi' => $this->kondisi,
-            'tanggal' => $this->tanggal,
+            'tanggal_pengadaan' => $this->tanggal,
             'danainventory_id' => $this->sumber_dana,
             'sumber_perolehan' => $this->sumber_perolehan,
             'harga_perolehan' => $this->harga_perolehan,

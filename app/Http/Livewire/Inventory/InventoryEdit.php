@@ -14,7 +14,7 @@ class InventoryEdit extends Component
 
     use LivewireAlert;
     public $data;
-    public $nama, $kode, $ruang, $inventory_category, $merek, $no_seri, $kondisi = "baik", $tanggal, $sumber_dana, $sumber_perolehan, $harga_perolehan, $jumlah, $satuan, $image;
+    public $nama, $kode, $ruang, $inventory_category, $merek, $no_seri, $kondisi = "baik", $tanggal_pengadaan, $sumber_dana, $sumber_perolehan, $harga_perolehan, $jumlah, $satuan, $image;
     protected $rules = [
         'nama' => 'required',
         'inventory_category' => "required",
@@ -36,7 +36,7 @@ class InventoryEdit extends Component
         $this->merek = $inventory->merek;
         $this->no_seri = $inventory->no_seri;
         $this->kondisi = $inventory->kondisi;
-        $this->tanggal = $inventory->tanggal;
+        $this->tanggal_pengadaan = $inventory->tanggal_pengadaan;
         $this->sumber_dana = $inventory->danainventory_id;
         $this->sumber_perolehan = $inventory->sumber_perolehan;
         $this->harga_perolehan = $inventory->harga_perolehan;
@@ -70,7 +70,7 @@ class InventoryEdit extends Component
             'merek' => $this->merek,
             'no_seri' => $this->no_seri,
             'kondisi' => $this->kondisi,
-            'tanggal' => $this->tanggal,
+            'tanggal_pengadaan' => $this->tanggal_pengadaan,
             'danainventory_id' => $this->sumber_dana,
             'sumber_perolehan' => $this->sumber_perolehan,
             'harga_perolehan' => $this->harga_perolehan,

@@ -3,7 +3,7 @@
         @csrf
         <div class="row">
             <div class=" col-md-6 col-lg-4">
-                <input type="text" wire:model="data">
+                <input type="hidden" wire:model="data">
                 <div class="mb-3">
                     <label for="kode">Kode Inventaris</label>
                     <input type="text" wire:model="kode" class="form-control" disabled data-bs-toggle="tooltip"
@@ -22,7 +22,7 @@
 
                 <div class="mb-3">
                     <label for="tanggal" class="form-label">Tanggal Pengadaan</label>
-                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror"  wire:model="tanggal" id="tanggal" autofocus>
+                    <input type="date" class="form-control @error('tanggal') is-invalid @enderror"  wire:model="tanggal_pengadaan" id="tanggal" autofocus>
                     @error('tanggal')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

@@ -78,7 +78,7 @@
                                     <tr>
                                        <Td class="pe-2">Tanggal Pengadaan</Td>
                                        <Td class="pe-2">:</Td>
-                                       <Td class="pe-2">{{ $data->tanggal }}</Td>
+                                       <Td class="pe-2">{{ $data->tanggal_pengadaan }}</Td>
                                     </tr>
                                     <tr>
                                        <Td class="pe-2">Sumber dana</Td>
