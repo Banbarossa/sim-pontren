@@ -29,6 +29,10 @@
                         <td>{{ $item->luas }}</td>
                         <td>
                             <a href="/sarpras/gedung/{{ $item->id }}" class="btn btn-outline-secondary"><i class="lni lni-eye"></i></a>
+                            @can('admin-maintenance')
+                                <button class="btn btn-outline-warning" wire:click="$emit('tampilgedung',{{ $item->id }})" type="button" data-bs-toggle="offcanvas" data-bs-target="#gedungedit" aria-controls="gedungedit"><i class="lni lni-pencil"></i></button>
+                            @endcan
+                            
                         </td>
                     </tr>
                 @endforeach
@@ -37,4 +41,15 @@
         <div>{{ $data->links() }}</div>
 
     </div>
+
+    {{-- ofcanvas add-data --}}
+<div class="offcanvas offcanvas-end" tabindex="-1" id="gedungedit" aria-labelledby="gedungeditLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-4">
+        <livewire:gedung.gedung-update/>
+    </div>
+</div>   
+
 </div>

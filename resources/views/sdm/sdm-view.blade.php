@@ -7,7 +7,99 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3 mb-3">
+            {{-- <div class="col-lg-12"> --}}
+                <div class="card shadow-sm py-2">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div>
+                                @if ($data->avatar)
+                                <img src="/storage/{{ $data->avatar }}" class="d-block img-circle mx-auto" alt="" height="100px" width="100px" style="object-fit: cover">
+                                @else
+                                <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" class="d-block img-circle mx-auto" alt="" height="100px" width="100px" style="object-fit: cover">                 
+                                @endif
+                            </div>
+                            <div class="d-flex justify-content-center mt-2">
+                                <a href="/sdm/{{ $data->unik_id }}/edit" class="me-2 btn btn-warning"><i class="lni lni-pencil"></i></a>
+                                <form action="/sdm/{{ $data->id }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin untuk menghapus')"><i class="lni lni-trash-can"></i></button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <div class="col-lg-5">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>:</td>
+                                        <td class="ps-2"><h3 class="text-muted">{{ $data->nama }}</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tempat Lahir</td>
+                                        <td>:</td>
+                                        <td class="ps-2"><p class="text-muted ">{{ $data->tempat_lahir }}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Lahir</td>
+                                        <td>:</td>
+                                        <td class="ps-2"><p class="text-muted">{{ \carbon\carbon::parse($data->tanggal_lahir)->format('d F Y') }}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No Hp</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ $data->no_hp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>N I K</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ $data->nik }}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                        <div class="col-lg-5">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ $data->alamat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desa</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ Str::ucfirst($data->village->name) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desa</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ Str::ucfirst($data->district->name) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desa</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ Str::ucfirst($data->regency->name) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desa</td>
+                                        <td>:</td>
+                                        <td class="ps-2">{{ Str::ucfirst($data->province->name) }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            {{-- </div> --}}
+            
+        </div>
+        <div class="row mt-4">
+            {{-- <div class="col-lg-3 mb-3">
                 <div class="card-style mb-2">
                     
                     @if ($data->avatar)
@@ -55,8 +147,8 @@
                         <p class="text-muted">{{ $data->status }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9">
+            </div> --}}
+            {{-- <div class="col-lg-12"> --}}
                 <div class="card-style mb-4">
                     <ul class="nav nav-pills border-bottom pb-1 card-header" id="pills-tab" role="tablist">
                         <li class="nav-item me-2" role="presentation">
@@ -83,7 +175,7 @@
                         
                     </div>
                 </div>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </section>
