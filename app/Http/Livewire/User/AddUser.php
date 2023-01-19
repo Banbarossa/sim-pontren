@@ -31,7 +31,7 @@ class AddUser extends Component
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,
-            'password' => $this->password,
+            'password' => Hash::make($this->password),
         ]);
         $this->alert('success', 'Data Berhasil Ditambahkan', [
             'position' => 'center'

@@ -22,6 +22,7 @@
                                 <div class="row align-items-center g-3">
                                   <div class="col-12 col-lg-6">
                                     <h5 class="mb-0">Detail Ruang</h5>
+
                                   </div>
                                 </div>
                            </div>

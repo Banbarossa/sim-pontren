@@ -1,6 +1,6 @@
 <div class="">
     <div class="d-flex justify-content-between">
-        <div class="col-4 col-md-6 col-lg-8">
+        <div class="col-4 col-md-6 col-lg-6">
             <div class="col-4">
                 <select name="perpage" wire:model="perpage" id="perpage" class="form-select">
                     <option value="10">10 Per Page</option>
@@ -10,8 +10,12 @@
             </div>
 
         </div>
-        <div class="col-8 col-md-6 col-lg-4 mb-3">
-            <input type="text" placeholder="Search" wire:model="search" class="form-control">
+        
+        
+        
+        <div class="col-8 col-md-6 col-lg-6 mb-3 d-flex justify-content-between">
+            <a href="" class="btn btn-secondary">Tambah Inventaris</a>
+            <input type="text" placeholder="Search" style="width: 50%" wire:model="search" class="form-control">
         </div>
     </div>
     

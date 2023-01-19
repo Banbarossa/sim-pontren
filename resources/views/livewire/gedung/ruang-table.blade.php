@@ -16,9 +16,12 @@
                 <td>{{ $item->kondisi }}</td>
                 <td>
                     <a href="/sarpras/ruang/{{ $item->id }}" class="btn btn-outline-secondary"><i class="lni lni-eye"></i></a>
+                    @can('admin-maintenance')
                     <button type="button" wire:click="$emit('tampilruang',{{ $item->id }})" class="btn btn-outline-warning block" data-bs-toggle="modal" data-bs-target="#ruangEdit">
                         <i class="lni lni-pencil"></i>
                     </button>
+                    @endcan
+                    
                 </td>
             </tr>
             @empty
