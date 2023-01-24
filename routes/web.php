@@ -12,6 +12,7 @@ use App\Http\Controllers\InventorymaintenanceController;
 use App\Http\Controllers\RuangController;
 use App\Http\Controllers\ManagerinventoryController;
 use App\Http\Controllers\MaintenanceinventoryController;
+use App\Models\Inventory;
 use App\Models\User;
 
 
@@ -52,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::resource('/sarpras/mantenance', InventorymaintenanceController::class)->except('index','create',);
     Route::post('/sarpras/ruang', [GedungController::class, 'createruang'])->name('add.ruang');
 });
+Route::get('sarpras/ruang/inventory/create/{ruang_id}', [InventoryController::class, 'createruang'])->middleware('auth');
 
 Route::get('/card/inventory/{id}', [InventoryController::class, 'card']);
 Route::get('/inventaris/{kode}', [InventoryController::class, 'scanqr']);

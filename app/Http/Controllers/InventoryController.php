@@ -28,7 +28,10 @@ class InventoryController extends Controller
     public function create()
     {
         $data = InventoryCategory::orderBy('nama', 'asc')->get();
-        return view('inventory.inventory-create', ['data' => $data]);
+        return view('inventory.inventory-create', [
+            'data' => $data,
+            'ruang' => ''
+        ]);
     }
 
     /**
@@ -125,5 +128,10 @@ class InventoryController extends Controller
             ->first();
 
         return view('inventory.scanqr', ['data' => $data]);
+    }
+
+    public function createruang($ruang_id)
+    {
+        return view('inventory.inventory-create', ['ruang' => $ruang_id]);
     }
 }

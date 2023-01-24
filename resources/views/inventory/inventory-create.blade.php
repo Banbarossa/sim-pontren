@@ -16,8 +16,9 @@
             <div class="row mt-3">         
                 <div class="col-lg-12">
                     <div class="card p-3">
+
                        
-                        <livewire:inventory.inventory-create/>
+                        <livewire:inventory.inventory-create :ruang="$ruang"/>
                         
                     </div>
                 </div>

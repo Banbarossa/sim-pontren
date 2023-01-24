@@ -28,7 +28,7 @@
                            </div>
                            <div class="card-header py-2 bg-light">
                              <div class="row row-cols-1 row-cols-lg-3">
-                               <div class="col">
+                               <div class="col-md-4">
                                  <div class="">
                                     <Table>
                                        <tr>
@@ -39,10 +39,8 @@
                                     </Table>
                                  </div>
                                </div>
-                               <div class="col">
                                
-                              </div>
-                              <div class="col">
+                              <div class="col-md-4">
                                  <table>
                                     <tr>
                                        <Td class="pe-2">Kondisi</Td>
@@ -51,6 +49,9 @@
                                     </tr>
                                     
                                  </table>
+                              </div>
+                              <div class="col-md-4 d-flex justify-content-end">
+                                 <a href="/sarpras/ruang/inventory/create/{{ $data->id }}" class="btn btn-secondary">Tambah Inventaris</a>
                               </div>
                              </div>
                            </div>

@@ -42,7 +42,6 @@ class InventoryTable extends Component
         }
 
 
-
         return view('livewire.inventory.inventory-table', [
             'data' => $data
         ]);

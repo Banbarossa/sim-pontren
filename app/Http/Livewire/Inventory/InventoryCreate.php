@@ -12,13 +12,21 @@ use Jantinnerezo\LivewireAlert\LivewireAlert;
 class InventoryCreate extends Component
 {
     use LivewireAlert;
-    public $nama, $kode, $ruang, $inventory_category, $merek, $no_seri, $kondisi = "baik", $tanggal, $sumber_dana, $sumber_perolehan, $harga_perolehan, $jumlah, $satuan, $image;
+    public $nama, $kode, $ruang = '', $inventory_category, $merek, $no_seri, $kondisi = "baik", $tanggal, $sumber_dana, $sumber_perolehan, $harga_perolehan, $jumlah, $satuan, $image;
+    public $listeners = ['ruang'];
+
+
 
     protected $rules = [
         'nama' => 'required',
         'inventory_category' => "required",
         'ruang' => "required",
     ];
+
+    public function mount($ruang)
+    {
+        $this->ruang = $ruang;
+    }
 
 
     public function updated()

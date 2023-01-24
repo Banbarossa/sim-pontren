@@ -28,7 +28,9 @@
 
                 <div class="mb-3">
                     <label for="Ruang">Ruang</label>
-                    <select name="ruang" id="ruang" wire:model="ruang" class="form-select @error('ruang') is-invalid @enderror">
+                    <select name="ruang" id="ruang" wire:model="ruang" class="form-select @error('ruang') is-invalid @enderror" @if ($ruang!='')
+                        disabled                        
+                    @endif>
                         <option value="">silahkan Pilih ruang penempatan</option>
                         @foreach ($ruangan as $item)
                         <option value="{{ $item->id }}">{{ $item->nama }}</option>
@@ -144,7 +146,9 @@
                     <select name="satuan" id="satuan" wire:model="satuan" class="form-select @error('satuan') is-invalid @enderror">
                         <option value="Buah">Buah</option>
                         <option value="Unit">Unit</option>
-                        <option value="Set">Sett</option>
+                        <option value="Set">Set</option>
+                        <option value="Lusin">Lusin</option>
+                      
                     </select>
                     @error('satuan')
                     <div class="invalid-feedback">
