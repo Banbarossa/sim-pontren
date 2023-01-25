@@ -6,7 +6,7 @@
         <div class="row">
             <div class="card-style">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12 col-md-8">
                         <h2 class="text-bold mb-3">{{ $data->deskripsi }}</h2>
                         <div class="d-flex justify-content-between">
                             <small class="text-muted">{{ \carbon\carbon::parse($data->tanggal)->translatedFormat('d F Y') }}</small>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     {{-- right widget --}}
-                    <div class="col-4">
+                    <div class="col-12 col-md-4">
                         <h3 class=" d-block text-danger mb-4"><span class="me-2"><i class="lni lni-timer"></i></span> Terbaru</h3>
                         @foreach ($widget as $item)
                         <div class="row border-bottom pb-2 my-3">
