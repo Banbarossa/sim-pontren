@@ -19,14 +19,14 @@
       
 
         <div class="table-responsive">
-            <table class="table text-gray">
+            <table class="table text-gray table-responsive table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Kode Surat</th>
                         <th>Tanggal</th>
                         <th>Tujuan</th>
-                        <th class="col-md-4">Isi ringkas</th>
+                        <th class="">Isi ringkas</th>
 
 
                         @can('admin')
@@ -42,7 +42,7 @@
                         <td>{{ $item->kode_surat }}</td>
                         <td class="text-nowrap">{{ \Carbon\Carbon::Parse($item->tanggal)->format('d-m-Y') }}</td>
                         <td>{{ $item->tujuan }}</td>
-                        <td class="text-wrap text-break px-2">{{ $item->isi_ringkas }}</td>
+                        <td class="px-2">{{ $item->isi_ringkas }}</td>
 
                         {{-- akses admin --}}
                         @can('admin')
